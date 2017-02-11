@@ -1,10 +1,16 @@
 import React from 'react';
 import { AppRegistry } from 'react-native';
-import Home from './Scenes/Home'
+import configureStore from './Config/ConfigureStore';
+import { Provider } from 'react-redux';
+import NavRootContainer from './Navigation/NavRootContainer'
+const store = configureStore()
+
 class CardinalScoutApp extends React.Component{
   render(){
   return (
-    <Home/>
+    <Provider store={store}>
+      <NavRootContainer/>
+    </Provider>
    );
   }
 }
