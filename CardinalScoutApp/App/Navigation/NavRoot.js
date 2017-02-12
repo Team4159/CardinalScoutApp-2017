@@ -1,63 +1,63 @@
 import React, { Component } from 'react'
 import Home from '../Scenes/Home'
 import Logs from '../Scenes/Logs'
-
 import {
-  BackAndroid,
-  NavigationExperimental
+  NavigationExperimental,
 } from 'react-native'
 
 const {
-  CardStack: NavigationCardStack
+  CardStack: NavigationCardStack,
+  Header: NavigationHeader,
+  StateUtils: NavigationStateUtils,
 } = NavigationExperimental
 
-class NavRoot extends Component {
-  /* eslint-disable*/
-  constructor (props) {
-    super(props)
-    this._renderScene = this._renderScene.bind(this)
-    this._handleBackAction = this._handleBackAction.bind(this)
+
+class Header extends Component{
+  render(){
+    return(
+      <NavigationHeader
+        {...this.props}
+        renderTitleComponent={this._renderTitleComponent}
+        onNavigateBack={this._back}
+      />
+    );
   }
-  componentDidMount () {
-    BackAndroid.addEventListener('hardwareBackPress', this._handleBackAction)
+  _back = () => {
+    this.props.pop()
   }
-  componentWillUnmount () {
-    BackAndroid.removeEventListener('hardwareBackPress', this._handleBackAction)
-  }
-  _renderScene (props) {
-     const { route } = props.scene
-    if (route.key === 'home') {
-      return <Home _handleNavigate={this._handleNavigate.bind(this)} />
-    }
-    if (route.key === 'logs') {
-      return <Logs _goBack={this._handleBackAction.bind(this)} />
-    }
-  }
-  _handleBackAction () {
-    if (this.props.navigation.index === 0) {
-      return false
-    }
-    this.props.popRoute()
-    return true
-  }
-  _handleNavigate (action) {
-    switch (action && action.type) {
-      case 'push':
-        this.props.pushRoute(action.route)
-        return true
-      case 'back':
-      case 'pop':
-        return this._handleBackAction()
-      default:
-        return false
-    }
-  }
-  render () {
+
+  _renderTitleComponent= (props) => {
     return (
+      <NavigationHeader.Title>
+        {props.scene.route.key}
+      </NavigationHeader.Title>
+    );
+  }
+}
+class NavRoot extends Component {
+  _renderScene= (props) =>{
+    switch (props.scene.route.key) {
+      case 'Home':
+        return <Home navigate={this._navigate}/>
+      case 'Logs':
+        return <Logs navigate={this._navigate}/>
+    }
+  }
+  _renderHeader = (sceneProps) =>{
+    return(
+      <Header
+        navigate={this.props.pop}
+        {...sceneProps}
+      />
+    )
+  }
+  render(){
+    return(
       <NavigationCardStack
-        navigationState={this.props.navigation}
-        onNavigate={this._handleNavigate.bind(this)}
-        renderScene={this._renderScene} />
+        navigationState={this.props.navState}
+        renderScene={this._renderScene}
+        renderHeader={this._renderHeader}
+      />
     )
   }
 }

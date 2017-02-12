@@ -1,3 +1,3 @@
 export const colors = {
-  buttonColor: '#0267c1',
+  buttonColor: '#7F1417',
 }
