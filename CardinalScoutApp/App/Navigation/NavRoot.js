@@ -12,9 +12,9 @@ const {
 } = NavigationExperimental
 
 
-class Header extends Component{
-  render(){
-    return(
+class Header extends Component {
+  render() {
+    return (
       <NavigationHeader
         {...this.props}
         renderTitleComponent={this._renderTitleComponent}
@@ -22,6 +22,7 @@ class Header extends Component{
       />
     );
   }
+
   _back = () => {
     this.props.pop()
   }
@@ -35,28 +36,28 @@ class Header extends Component{
   }
 }
 class NavRoot extends Component {
-  _renderScene= (props) =>{
-    switch (props.scene.route.key) {
+  _renderScene = (props) => {
+    switch(props.scene.route.key) {
       case 'Home':
-        return <Home navigate={this._navigate}/>
+        return <Home />
       case 'Logs':
-        return <Logs navigate={this._navigate}/>
+        return <Logs />
     }
   }
-  _renderHeader = (sceneProps) =>{
-    return(
+  _renderHeader = (sceneProps) => {
+    return (
       <Header
-        navigate={this.props.pop}
+        pop={this.props.pop}
         {...sceneProps}
       />
-    )
+    );
   }
-  render(){
-    return(
+  render() {
+    return (
       <NavigationCardStack
+        renderHeader={this._renderHeader}
         navigationState={this.props.navState}
         renderScene={this._renderScene}
-        renderHeader={this._renderHeader}
       />
     )
   }

@@ -6,11 +6,10 @@ function mapStateToProps (state) {
     navState: state.navState,
   }
 }
-
 export default connect(
   mapStateToProps,
   {
-    pushRoute: (route) => push(route),
-    popRoute: () => pop()
+    push: (route) => push(route),
+    pop: () => pop(),
   }
 )(NavRoot)
