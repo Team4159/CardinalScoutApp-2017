@@ -1,8 +1,8 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import LongButton from '../../Components/LongButton';
+import LongButton from '../../components/LongButton';
 import { connect } from 'react-redux';
-import { pop } from '../../Actions/navActions';
+import { pop } from '../../actions/navActions';
 
 const Logs = ({ pop }) =>(
   <View>

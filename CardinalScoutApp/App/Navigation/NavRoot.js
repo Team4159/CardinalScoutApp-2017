@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Home from '../Scenes/Home'
-import Logs from '../Scenes/Logs'
+import Home from '../scenes/Home'
+import Logs from '../scenes/Logs'
 import {
   NavigationExperimental,
 } from 'react-native'

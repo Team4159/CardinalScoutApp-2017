@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import LongButton from '../../Components/LongButton';
+import LongButton from '../../components/LongButton';
 import styles from './styles';
 import { connect } from 'react-redux';
-import { push } from '../../Actions/navActions';
+import { push } from '../../actions/navActions';
 
 
 const Home = ({ push }) =>(
