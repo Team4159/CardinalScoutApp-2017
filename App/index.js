@@ -11,5 +11,5 @@ const App = () => (
     <NavRootContainer />
   </Provider>
 )
-
+export default App;
 AppRegistry.registerComponent('CardinalScoutApp', () => App);
