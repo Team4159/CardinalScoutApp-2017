@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/ios/CardinalScoutAppTests/CardinalScoutAppTests.m \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/ios/CardinalScoutAppTests/CardinalScoutAppTests.m \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Modules/module.modulemap \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCUIRemote.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCUIKeyboardKeys.h \
@@ -29,13 +29,13 @@ dependencies: \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestErrors.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestDefines.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTest.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTRootView.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTRootView.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h

@@ -1,24 +1,24 @@
 dependencies: \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Executors/RCTJSCExecutor.mm \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Executors/RCTJSCExecutor.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Base/RCTJavaScriptExecutor.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Base/RCTBridgeModule.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Base/RCTDefines.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Base/RCTInvalidating.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/ios/build/Build/Products/Debug-iphonesimulator/include/cxxreact/JSBundleType.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JavaScriptCore.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JSCWrapper.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Modules/JSCSamplingProfiler.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Base/RCTAssert.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Base/RCTBridge+Private.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Base/RCTBridge.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Base/RCTFrameUpdate.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Modules/RCTDevMenu.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Executors/RCTJSCErrorHandling.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Profiler/RCTJSCProfiler.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Base/RCTLog.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Base/RCTPerformanceLogger.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Profiler/RCTProfile.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Base/RCTUtils.h
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Executors/RCTJSCExecutor.mm \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Executors/RCTJSCExecutor.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Base/RCTJavaScriptExecutor.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/ios/build/Build/Products/Debug-iphonesimulator/include/cxxreact/JSBundleType.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JavaScriptCore.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JSCWrapper.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Modules/JSCSamplingProfiler.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Base/RCTBridge+Private.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Modules/RCTDevMenu.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Executors/RCTJSCErrorHandling.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Profiler/RCTJSCProfiler.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Base/RCTPerformanceLogger.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Profiler/RCTProfile.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Base/RCTUtils.h

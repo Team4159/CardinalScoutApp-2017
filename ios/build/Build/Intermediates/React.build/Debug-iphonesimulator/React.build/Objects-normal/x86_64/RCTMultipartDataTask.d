@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Base/RCTMultipartDataTask.m \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Base/RCTMultipartDataTask.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Base/RCTMultipartStreamReader.h
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Base/RCTMultipartDataTask.m \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Base/RCTMultipartDataTask.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Base/RCTMultipartStreamReader.h

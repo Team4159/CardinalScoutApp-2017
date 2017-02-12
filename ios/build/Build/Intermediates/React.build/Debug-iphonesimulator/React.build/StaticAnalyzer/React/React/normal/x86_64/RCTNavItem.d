@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Views/RCTNavItem.m \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Views/RCTNavItem.h \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Views/RCTComponent.h
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Views/RCTNavItem.m \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Views/RCTNavItem.h \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Views/RCTComponent.h

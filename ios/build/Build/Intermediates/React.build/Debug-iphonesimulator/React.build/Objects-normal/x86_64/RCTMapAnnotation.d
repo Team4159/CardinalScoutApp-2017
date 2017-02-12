@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Views/RCTMapAnnotation.m \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/React/Views/RCTMapAnnotation.h
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Views/RCTMapAnnotation.m \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/React/Views/RCTMapAnnotation.h

@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/ReactCommon/jschelpers/JSCWrapper.cpp \
-  /Users/Thanawat/GitHub/CardinalScout-2017/CardinalScoutApp/node_modules/react-native/ReactCommon/jschelpers/JSCWrapper.h
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/ReactCommon/jschelpers/JSCWrapper.cpp \
+  /Users/brandon/Projects/Robotics/CardinalScout-2017/node_modules/react-native/ReactCommon/jschelpers/JSCWrapper.h
