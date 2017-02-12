@@ -3,7 +3,7 @@ import { AppRegistry } from 'react-native';
 import configureStore from './config/configureStore';
 import { Provider } from 'react-redux';
 import NavRootContainer from './navigation/NavRootContainer';
-import rootReducer from './Reducers';
+import rootReducer from './reducers';
 const store = configureStore(rootReducer)
 
 const App = () => (

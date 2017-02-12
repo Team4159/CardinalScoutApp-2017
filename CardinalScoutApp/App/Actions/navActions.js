@@ -1,4 +1,4 @@
-import { POP_ROUTE, PUSH_ROUTE } from '../Config/ActionTypes'
+import { POP_ROUTE, PUSH_ROUTE } from '../config/actionTypes'
 
 export function push (route) {
   return {
