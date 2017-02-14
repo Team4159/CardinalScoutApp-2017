@@ -9,7 +9,7 @@ import { push } from '../../actions/navActions';
 const Home = ({ push }) =>(
   <View style={styles.container}>
     <Text style = {styles.text}>Cardinal Scout App</Text>
-    <LongButton text='Match Scout'/>
+    <LongButton text='Match Scout' onPress={() => push({key: 'MatchScout'})}/>
     <LongButton text='Logs' onPress={() => push({key: 'Logs'})}/>
     <LongButton text='Settings'/>
   </View>
