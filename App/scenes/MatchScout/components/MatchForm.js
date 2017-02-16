@@ -9,6 +9,12 @@ class MatchForm extends Component{
       match : '',
       team: ''
     }
+    this.onSubmitPress = this.onSubmitPress.bind(this)
+  }
+  onSubmitPress(){
+    this.props.submit({match: this.state.match});
+    this.props.submit({team: this.state.team});
+    this.props.push({key: 'AutonForm'});
   }
   render(){
   return(
@@ -16,7 +22,7 @@ class MatchForm extends Component{
     <Text> Enter team and match </Text>
     <TextInput style={styles.textBox} onChangeText = {(text) => this.setState({match: text}) }/>
     <TextInput style={styles.textBox} onChangeText = {(text) => this.setState({team: text}) }/>
-    <LongButton  text={'submit'} onPress={() => this.props.push({key: 'AutonForm'})}/>
+    <LongButton  text={'submit'} onPress={() => this.onSubmitPress()}/>
   </View>
   )
   }

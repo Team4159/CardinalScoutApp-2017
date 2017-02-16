@@ -3,14 +3,11 @@ import { NavigationExperimental } from 'react-native';
 const {
   StateUtils: NavigationStateUtils,
 } = NavigationExperimental;
-
-function navReducer(state, action){
-  if(!state){
-    return{
-      index: 0,
-      routes: [{key: 'Home'}],
-    }
-  }
+var initialRoute = {
+  index: 0,
+  routes: [{key: 'Home'}],
+}
+function navReducer(state = initialRoute, action){
   switch (action.type){
     case PUSH_ROUTE:{
       return NavigationStateUtils.push(state, action.route)
