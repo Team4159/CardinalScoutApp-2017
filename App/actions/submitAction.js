@@ -1,4 +1,4 @@
-import { SUBMIT_FORM, CSV } from '../config/actionTypes';
+import { SUBMIT_FORM, CSV, RESET_DATA } from '../config/actionTypes';
 
 export function submit(data){
   return {
@@ -9,5 +9,10 @@ export function submit(data){
 export function csv(){
   return{
     type: CSV,
+  }
+}
+export function resetData(){
+  return{
+    type: RESET_DATA,
   }
 }

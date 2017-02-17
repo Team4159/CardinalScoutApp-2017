@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import navState from './navReducer';
 import data from './submitReducer';
 import csv from './csvReducer';
-import { PUSH_ROUTE, POP_ROUTE, SUBMIT_FORM, CSV, RESET_ROUTE } from '../config/actionTypes';
+import { PUSH_ROUTE, POP_ROUTE, SUBMIT_FORM, CSV, RESET_ROUTE, RESET_DATA } from '../config/actionTypes';
 const initialState = {
   navState: {
     index: 0,
@@ -38,6 +38,21 @@ const rootReducer = (state, action) =>{
         navState: {
           index: 0,
           routes: [{key: 'Home'}],
+        }
+      })
+    case RESET_DATA:
+      return Object.assign( {}, state, {
+        data: {
+          match: '',
+          team: '',
+          autonGears: 0,
+          autonBallsLow: 0,
+          autonBallsHigh : 0,
+          cross: false,
+          teleopGears: 0,
+          teleopBallsHigh: 0,
+          teleopBallsLow: 0,
+
         }
       })
     case SUBMIT_FORM:
