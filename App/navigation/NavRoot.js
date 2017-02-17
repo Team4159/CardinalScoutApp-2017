@@ -47,6 +47,8 @@ class NavRoot extends Component {
         return <MatchScout />
       case 'AutonForm':
         return <MatchScout scene='AutonForm' />
+      case 'TeleopForm':
+        return <MatchScout scene='TeleopForm' />
     }
   }
   _renderHeader = (sceneProps) => {

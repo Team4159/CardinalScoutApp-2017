@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MatchForm from './containers/MatchFormContainer';
-import AutonForm from './components/AutonForm';
+import AutonForm from './containers/AutonFormContainer';
+import TeleopForm from './containers/TeleopFormContainer';
 import { push } from '../../actions/navActions';
 import { connect } from 'react-redux';
 
@@ -12,6 +13,9 @@ class MatchScout extends Component{
   renderScene = (scene) =>{
       if(scene === 'AutonForm'){
         return <AutonForm />
+      }
+      if(scene === 'TeleopForm'){
+        return <TeleopForm />
       }
         return <MatchForm />
   }

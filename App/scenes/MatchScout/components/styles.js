@@ -13,5 +13,20 @@ export default StyleSheet.create({
     alignSelf: 'center',
     margin: 20,
     paddingLeft: 50
-  }
+  },
+  buttonContainer:{
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  disabledButtons: {
+    margin: 10,
+    backgroundColor: 'gray',
+    borderRadius: 5,
+    height: 70,
+    width: 120,
+    justifyContent: 'center',
+
+  },
 })

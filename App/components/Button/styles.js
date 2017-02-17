@@ -8,12 +8,11 @@ export default StyleSheet.create({
     borderRadius: 5,
     height: 70,
     width: 120,
-    alignItems: 'center',
     justifyContent: 'center',
 
   },
   buttonText: {
-    fontSize: 30,
+    fontSize: 26,
     textAlign: 'center'
   }
 })
