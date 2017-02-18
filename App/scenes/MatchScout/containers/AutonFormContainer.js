@@ -3,7 +3,7 @@ import AutonForm from '../components/AutonForm'
 import { push, pop, reset } from '../../../actions/navActions'
 import { submit } from '../../../actions/submitAction'
 const mapStateToProps = (state) => {
-  return { data: state.data }
+  return { data: state.data.temporaryData }
 }
 const mapDispatchToProps = (dispatch) => {
   return {

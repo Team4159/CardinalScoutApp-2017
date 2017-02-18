@@ -3,13 +3,13 @@ import TeleopForm from '../components/TeleopForm'
 import { push, pop, reset } from '../../../actions/navActions'
 import { submit, csv, resetData } from '../../../actions/submitAction'
 function mapStateToProps (state) {
-  return { data: state.data }
+  return { data: state.data.temporaryData }
 }
 function mapDispatchToProps (dispatch) {
   return {
     push: (route) => dispatch(push(route)),
     submit: (data) => dispatch(submit(data)),
-    reset: () => dispatch(reset()),
+    reset: (route) => dispatch(reset(route)),
     csv: () => dispatch(csv()),
     onPlusPress: (key, data) => {
       if(key === 'gear'){
@@ -45,9 +45,9 @@ function mapDispatchToProps (dispatch) {
       }
       }
     },
-    onNextPress: () => {
+    onNextPress: (route) => {
       dispatch(csv())
-      dispatch(reset())
+      dispatch(reset(route))
       dispatch(resetData())
     }
   }
