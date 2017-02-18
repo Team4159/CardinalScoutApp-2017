@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import MatchForm from '../components/MatchForm'
 import { push, pop } from '../../../actions/navActions'
-import { submit } from '../../../actions/submitAction'
+import { submit } from '../../../actions/dataActions'
 function mapStateToProps (state) {
   return {}
 }

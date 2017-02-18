@@ -1,4 +1,4 @@
-import { SUBMIT_FORM, CSV, RESET_DATA } from '../config/actionTypes';
+import { SUBMIT_FORM, CSV, RESET_DATA, CLEAR_STORED_DATA } from '../config/actionTypes';
 import csv from './csvReducer';
 const initialData = {
    temporaryData :{match: '',
@@ -14,7 +14,7 @@ const initialData = {
                  },
    storedData: []
 }
-function submitReducer(state=initialData, action){
+function dataReducer(state=initialData, action){
   switch (action.type) {
     case SUBMIT_FORM:{
       var data = Object.assign({}, state.temporaryData, action.data)
@@ -37,9 +37,13 @@ function submitReducer(state=initialData, action){
                         comments: ''
                       },
       });
+    case CLEAR_STORED_DATA:
+      return Object.assign({}, state, {
+        storedData: []
+      })
     default:
       return state
 
   }
 }
-export default submitReducer;
+export default dataReducer;

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import navState from './navReducer';
-import data from './submitReducer';
+import data from './dataReducer';
 
 
 export default combineReducers({

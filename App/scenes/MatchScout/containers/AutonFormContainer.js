@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import AutonForm from '../components/AutonForm'
 import { push, pop, reset } from '../../../actions/navActions'
-import { submit } from '../../../actions/submitAction'
+import { submit } from '../../../actions/dataActions'
 const mapStateToProps = (state) => {
   return { data: state.data.temporaryData }
 }

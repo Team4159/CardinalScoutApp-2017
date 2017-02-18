@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import TeleopForm from '../components/TeleopForm'
 import { push, pop, reset } from '../../../actions/navActions'
-import { submit, csv, resetData } from '../../../actions/submitAction'
+import { submit, csv, resetData } from '../../../actions/dataActions'
 function mapStateToProps (state) {
   return { data: state.data.temporaryData }
 }
