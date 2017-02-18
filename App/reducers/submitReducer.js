@@ -21,7 +21,7 @@ function submitReducer(state=initialData, action){
       return Object.assign({}, state, {temporaryData: data})
     }
     case CSV: {
-      return Object.assign({}, state, {storedData: csv(state.temporaryData, action)})
+      return Object.assign({}, state, {storedData: csv(state.storedData, action, state.temporaryData)})
     }
     case RESET_DATA:
       return Object.assign({}, state, {
