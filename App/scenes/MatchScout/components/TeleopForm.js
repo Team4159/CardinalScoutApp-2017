@@ -11,7 +11,7 @@ class TeleopForm extends Component {
   }
   nextPress(){
     this.props.submit({comments: this.state.comments})
-    this.props.onNextPress()
+    this.props.onNextPress({key: 'Home'})
   }
   render(){
   return(

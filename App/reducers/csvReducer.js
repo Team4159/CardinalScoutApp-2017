@@ -1,6 +1,6 @@
 import { CSV } from '../config/actionTypes';
 
-function csv(state=[], action, data){
+function csv(state=[], action){
   function commas(d){
     var names = Object.keys(d);
     var data = Object.values(d);
@@ -11,10 +11,11 @@ function csv(state=[], action, data){
     return str;
   }
   if(action.type === CSV){
-    var str = commas(data);
+    var str = commas(state);
     return [
       ...state, str
     ]
   }
+  return state;
 }
 export default csv;
