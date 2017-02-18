@@ -6,9 +6,10 @@ export function submit(data){
     data
     }
 }
-export function csv(){
+export function csv(data){
   return{
     type: CSV,
+    data
   }
 }
 export function resetData(){
