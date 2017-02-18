@@ -12,7 +12,7 @@ export default StyleSheet.create({
     borderColor: 'gray',
     alignSelf: 'center',
     margin: 20,
-    paddingLeft: 50
+    paddingLeft: 10
   },
   buttonContainer:{
     flex: 1,

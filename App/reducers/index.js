@@ -18,6 +18,7 @@ const initialState = {
     teleopGears: 0,
     teleopBallsHigh: 0,
     teleopBallsLow: 0,
+    comments: ''
 
   },
   csv: [],
@@ -52,7 +53,7 @@ const rootReducer = (state, action) =>{
           teleopGears: 0,
           teleopBallsHigh: 0,
           teleopBallsLow: 0,
-
+          comments: ''
         }
       })
     case SUBMIT_FORM:

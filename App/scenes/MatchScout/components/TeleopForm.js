@@ -35,7 +35,7 @@ class TeleopForm extends Component {
       <Button text={'-'} onPress={() => this.props.onMinusPress('ball low', this.props.data)} />
       <Text>{this.props.data.teleopBallsLow}</Text>
     </View>
-    <TextInput onChangeText={(text) => this.setState({comments: text})} style={styles.textBox}/>
+    <TextInput placeholder={'Additional comments you may have on the robot'} onChangeText={(text) => this.setState({comments: text})} style={styles.textBox}/>
     <LongButton text={'Submit'} onPress={() => this.nextPress()} />
   </View>
   )

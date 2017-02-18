@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput, Alert } from 'react-native';
 import LongButton from '../../../components/LongButton';
 import styles from './styles';
 class MatchForm extends Component{
@@ -12,16 +12,23 @@ class MatchForm extends Component{
     this.onSubmitPress = this.onSubmitPress.bind(this)
   }
   onSubmitPress(){
+    if((isNaN(this.state.match) || isNaN(this.state.team)) || (this.state.match === '' || this.state.team === '')){
+      Alert.alert(
+        'Invalid match or team number',
+        'Please enter a valid match and team number'
+      )
+    }else{
     this.props.submit({match: this.state.match});
     this.props.submit({team: this.state.team});
     this.props.push({key: 'AutonForm'});
+    }
   }
   render(){
   return(
   <View style={styles.container}>
     <Text> Enter team and match </Text>
-    <TextInput style={styles.textBox} onChangeText = {(text) => this.setState({match: text}) }/>
-    <TextInput style={styles.textBox} onChangeText = {(text) => this.setState({team: text}) }/>
+    <TextInput placeholder={'Match number'} style={styles.textBox} onChangeText = {(text) => this.setState({match: text}) }/>
+    <TextInput placeholder={'Team number'} style={styles.textBox} onChangeText = {(text) => this.setState({team: text}) }/>
     <LongButton  text={'submit'} onPress={() => this.onSubmitPress()}/>
   </View>
   )
