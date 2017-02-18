@@ -4,3 +4,4 @@ export const RESET_DATA = 'RESET_DATA';
 export const RESET_ROUTE = 'RESET_ROUTE';
 export const SUBMIT_FORM = 'SUBMIT_FORM';
 export const CSV = 'CSV';
+export const CLEAR_STORED_DATA = 'CLEAR_STORED_DATA';

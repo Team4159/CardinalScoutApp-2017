@@ -1,4 +1,4 @@
-import { SUBMIT_FORM, CSV } from '../config/actionTypes';
+import { SUBMIT_FORM, CSV, RESET_DATA } from '../config/actionTypes';
 import csv from './csvReducer';
 const initialData = {
    temporaryData :{match: '',
@@ -23,6 +23,20 @@ function submitReducer(state=initialData, action){
     case CSV: {
       return Object.assign({}, state, {storedData: csv(state.temporaryData, action)})
     }
+    case RESET_DATA:
+      return Object.assign({}, state, {
+        temporaryData :{match: '',
+                        team: '',
+                        autonGears: 0,
+                        autonBallsLow: 0,
+                        autonBallsHigh : 0,
+                        cross: false,
+                        teleopGears: 0,
+                        teleopBallsHigh: 0,
+                        teleopBallsLow: 0,
+                        comments: ''
+                      },
+      });
     default:
       return state
 
