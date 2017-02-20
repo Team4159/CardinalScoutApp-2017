@@ -30,8 +30,8 @@ const AutonForm = ({ onPlusPress, onMinusPress, push, submit, data }) =>{
 
       <View style={styles.buttonContainer}>
         <Text>cross?</Text>
-        <Button text={'cross'} style={data.cross ? styles.disabledButtons:undefined } onPress={() => submit({cross: true})} disabled={data.cross}/>
-        <Button text={'not cross'} style={!data.cross ? styles.disabledButtons:undefined} onPress={() => submit({cross: false})} disabled={!data.cross}/>
+        <Button text={'cross'} style={data.cross ? {backgroundColor: 'gray'}:undefined } onPress={() => submit({cross: true})} disabled={data.cross}/>
+        <Button text={'!cross'} style={!data.cross ? {backgroundColor: 'gray'}:undefined} onPress={() => submit({cross: false})} disabled={!data.cross}/>
       </View>
 
       <LongButton text={'Next'} onPress={() => push({key: 'TeleopForm'})}/>
