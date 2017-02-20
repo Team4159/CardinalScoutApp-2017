@@ -6,8 +6,8 @@ export default StyleSheet.create({
     margin: 10,
     backgroundColor: colors.buttonColor,
     borderRadius: 5,
-    height: 70,
-    width: 120,
+    height: 50,
+    width: 100,
     justifyContent: 'center',
 
   },

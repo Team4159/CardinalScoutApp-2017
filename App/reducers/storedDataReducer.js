@@ -12,7 +12,8 @@ function commas(d){
 function storedData(state={stash: [], uid: ''}, action, data){
   switch(action.type){
     case STASH:{
-      var ds = [...state.stash, data]
+      var obj = {id: action.id, data: data}
+      var ds = [...state.stash, obj]
       return Object.assign({}, state, {stash: ds})
     }
     case SET_UID:{

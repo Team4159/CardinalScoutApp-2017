@@ -10,6 +10,8 @@ const initialData = {
                    teleopGears: 0,
                    teleopBallsHigh: 0,
                    teleopBallsLow: 0,
+                   reachTouchPad: false,
+                   scoreTouchPad: false,
                    comments: ''
                  },
    storedData: {stash: [], uid: ''}
@@ -40,7 +42,7 @@ function dataReducer(state=initialData, action){
       });
     case CLEAR_STORED_DATA:
       return Object.assign({}, state, {
-        storedData: []
+        storedData: {stash: [], uid: ''}
       })
     default:
       return state

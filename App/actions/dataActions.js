@@ -1,5 +1,5 @@
 import { SUBMIT_FORM, RESET_DATA, CLEAR_STORED_DATA, STASH, SET_UID } from '../config/actionTypes';
-
+import v4 from 'uuid/v4';
 export function submit(data){
   return {
     type: SUBMIT_FORM,
@@ -18,7 +18,8 @@ export function resetStoredData(){
 }
 export function stash(){
   return {
-    type: STASH
+    type: STASH,
+    id: v4()
   }
 }
 export function setUID(uid){

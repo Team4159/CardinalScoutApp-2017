@@ -35,6 +35,16 @@ class TeleopForm extends Component {
       <Button text={'-'} onPress={() => this.props.onMinusPress('ball low', this.props.data)} />
       <Text>{this.props.data.teleopBallsLow}</Text>
     </View>
+    <View style={styles.buttonContainer}>
+      <Text>reached Touch Pad?</Text>
+      <Button text={'reached'} style={this.props.data.reachTouchPad ? {backgroundColor: 'gray'}:undefined } onPress={() => this.props.submit({reachTouchPad: true})} disabled={this.props.data.reachTouchPad}/>
+      <Button text={'!reach'} style={!this.props.data.reachTouchPad ? {backgroundColor: 'gray'}:undefined} onPress={() => this.props.submit({reachTouchPad: false})} disabled={!this.props.data.reachTouchPad}/>
+    </View>
+    <View style={styles.buttonContainer}>
+      <Text> climbed?</Text>
+      <Button text={'climbed'} style={this.props.data.scoreTouchPad ? {backgroundColor: 'gray'}:undefined } onPress={() => this.props.submit({scoreTouchPad: true})} disabled={this.props.data.scoreTouchPad}/>
+      <Button text={'!climb'} style={this.props.data.scoreTouchPad ? {backgroundColor: 'gray'}:undefined } onPress={() => this.props.submit({reachTouchPad: true})} disabled={this.props.data.reachTouchPad}/>
+    </View>
     <TextInput placeholder={'Additional comments you may have on the robot'} onChangeText={(text) => this.setState({comments: text})} style={styles.textBox}/>
     <LongButton text={'Submit'} onPress={() => this.nextPress()} />
   </View>
