@@ -4,9 +4,15 @@ import styles from './styles';
 const LongButton = (props) => {
   const { text, onPress, style } = props;
   return(
+<<<<<<< HEAD
   <TouchableOpacity onPress={onPress} style={styles.buttons}>
     <Text style={[styles.buttonText, style]}>{text}</Text>
   </TouchableOpacity>
+=======
+    <TouchableOpacity onPress={onPress} style={styles.buttons}>
+      <Text style={styles.buttonText}>{text}</Text>
+    </TouchableOpacity>
+>>>>>>> finishing-touches
  )
 }
 
