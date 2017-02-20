@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import TeleopForm from '../components/TeleopForm'
 import { push, pop, reset } from '../../../actions/navActions'
-import { submit, csv, resetData } from '../../../actions/dataActions'
+import { submit, resetData, stash } from '../../../actions/dataActions'
 function mapStateToProps (state) {
   return { data: state.data.temporaryData }
 }
@@ -10,7 +10,6 @@ function mapDispatchToProps (dispatch) {
     push: (route) => dispatch(push(route)),
     submit: (data) => dispatch(submit(data)),
     reset: (route) => dispatch(reset(route)),
-    csv: () => dispatch(csv()),
     onPlusPress: (key, data) => {
       if(key === 'gear'){
       var gear = data.teleopGears + 1;
@@ -46,7 +45,7 @@ function mapDispatchToProps (dispatch) {
       }
     },
     onNextPress: (route) => {
-      dispatch(csv())
+      dispatch(stash())
       dispatch(reset(route))
       dispatch(resetData())
     }

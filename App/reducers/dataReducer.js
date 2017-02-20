@@ -1,5 +1,5 @@
-import { SUBMIT_FORM, CSV, RESET_DATA, CLEAR_STORED_DATA } from '../config/actionTypes';
-import csv from './csvReducer';
+import { SUBMIT_FORM, RESET_DATA, CLEAR_STORED_DATA, STASH, SET_UID } from '../config/actionTypes';
+import storedData from './storedDataReducer';
 const initialData = {
    temporaryData :{match: '',
                    team: '',
@@ -12,7 +12,7 @@ const initialData = {
                    teleopBallsLow: 0,
                    comments: ''
                  },
-   storedData: []
+   storedData: {stash: [], uid: ''}
 }
 function dataReducer(state=initialData, action){
   switch (action.type) {
@@ -20,8 +20,9 @@ function dataReducer(state=initialData, action){
       var data = Object.assign({}, state.temporaryData, action.data)
       return Object.assign({}, state, {temporaryData: data})
     }
-    case CSV: {
-      return Object.assign({}, state, {storedData: csv(state.storedData, action, state.temporaryData)})
+    case SET_UID:
+    case STASH:{
+      return Object.assign({}, state, {storedData: storedData(state.storedData, action, state.temporaryData)})
     }
     case RESET_DATA:
       return Object.assign({}, state, {

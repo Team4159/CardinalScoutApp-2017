@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import { Text } from 'react-native'
 import Home from '../scenes/Home'
 import Logs from '../scenes/Logs'
 import MatchScout from '../scenes/MatchScout'
+import Settings from '../scenes/Settings'
 import {
   NavigationExperimental,
 } from 'react-native'
@@ -49,6 +51,8 @@ class NavRoot extends Component {
         return <MatchScout scene='AutonForm' />
       case 'TeleopForm':
         return <MatchScout scene='TeleopForm' />
+      case 'Settings':
+        return <Settings/>
     }
   }
   _renderHeader = (sceneProps) => {

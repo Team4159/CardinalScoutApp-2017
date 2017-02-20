@@ -2,27 +2,14 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import LongButton from '../../components/LongButton';
 import styles from './styles';
-import { connect } from 'react-redux';
-import { push } from '../../actions/navActions';
 
 
-const Home = ({ push }) =>(
+const Home = ({ push, stash }) =>(
   <View style={styles.container}>
     <Text style = {styles.text}>Cardinal Scout App</Text>
     <LongButton text='Match Scout' onPress={() => push({key: 'MatchScout'})}/>
     <LongButton text='Logs' onPress={() => push({key: 'Logs'})}/>
-    <LongButton text='Settings'/>
+    <LongButton text='Settings' onPress={() => push({key: 'Settings'})}/>
   </View>
 )
-function mapStateToProps () { return {} }
-
-function mapDispatchToProps (dispatch) {
-  return {
-    push: (route) => dispatch(push(route))
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Home)
+export default Home;
