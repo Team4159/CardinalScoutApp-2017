@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Button from '../../../components/Button';
-import { View, Text, TextInput } from 'react-native';
+import { ScrollView ,View, Text, TextInput } from 'react-native';
 import LongButton from '../../../components/LongButton';
 import styles from './styles';
 const AutonForm = ({ onPlusPress, onMinusPress, push, submit, data }) =>{
   return(
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <Text> Autonomous Scouting </Text>
       <View style={styles.buttonContainer}>
         <Text> Gears </Text>
@@ -35,7 +35,7 @@ const AutonForm = ({ onPlusPress, onMinusPress, push, submit, data }) =>{
       </View>
 
       <LongButton text={'Next'} onPress={() => push({key: 'TeleopForm'})}/>
-    </View>
+    </ScrollView>
   )
 }
 export default AutonForm;

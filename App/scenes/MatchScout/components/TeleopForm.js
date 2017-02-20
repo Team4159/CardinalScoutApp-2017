@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Button from '../../../components/Button';
-import { View, Text, TextInput } from 'react-native';
+import { ScrollView,View, Text, TextInput } from 'react-native';
 import LongButton from '../../../components/LongButton';
 import styles from './styles';
 class TeleopForm extends Component {
@@ -15,7 +15,7 @@ class TeleopForm extends Component {
   }
   render(){
   return(
-  <View style={styles.container}>
+  <ScrollView contentContainerStyle={styles.container}>
     <Text> Teleop Scouting </Text>
 
     <View style={styles.buttonContainer}>
@@ -53,7 +53,7 @@ class TeleopForm extends Component {
 
     <TextInput placeholder={'Additional comments you may have on the robot'} onChangeText={(text) => this.setState({comments: text})} style={styles.textBox}/>
     <LongButton text={'Submit'} onPress={() => this.nextPress()} />
-  </View>
+  </ScrollView>
   )
 }
 }

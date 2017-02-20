@@ -32,11 +32,11 @@ class Header extends Component {
     );
   }
   _renderRightComponent = (props) => (
-    <TouchableOpacity style={{justifyContent: 'center', padding: 15}} onPress={this._canclePress}>
-      <Text style={{color: 'blue', fontSize: 16}}>cancle</Text>
+    <TouchableOpacity style={{justifyContent: 'center', padding: 15}} onPress={this._cancelPress}>
+      <Text style={{color: 'blue', fontSize: 16}}>cancel</Text>
     </TouchableOpacity>
   )
-  _canclePress = () => {
+  _cancelPress = () => {
     this.props.reset()
     this.props.resetData()
   }
