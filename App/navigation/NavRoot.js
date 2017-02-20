@@ -42,14 +42,14 @@ class NavRoot extends Component {
   _renderScene = (props) => {
     switch(props.scene.route.key) {
       case 'Home':
-        return <Home />
+        return <Home/>
       case 'Logs':
-        return <Logs />
-      case 'PreScout':
+        return <Logs/>
+      case 'Pre Match':
         return <MatchScout scene='PreForm'/>
-      case 'AutonForm':
+      case 'Autonomous':
         return <MatchScout scene='AutonForm' />
-      case 'TeleopForm':
+      case 'Teleop':
         return <MatchScout scene='TeleopForm' />
       case 'Settings':
         return <Settings/>

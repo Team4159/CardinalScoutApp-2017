@@ -3,16 +3,17 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: 'flex-start',
+    margin: 50
   },
   textBox: {
     height: 50,
     width: 250,
     borderWidth: 1,
     borderColor: 'gray',
-    alignSelf: 'center',
-    margin: 20,
-    paddingLeft: 10
+    paddingLeft: 10,
+    marginTop: 10,
+    marginBottom: 15
   },
   buttonContainer:{
     flex: 1,
@@ -27,6 +28,21 @@ export default StyleSheet.create({
     height: 70,
     width: 120,
     justifyContent: 'center',
-
   },
+  button: {
+    backgroundColor: '#8b0000',
+    width: 250,
+    height: 50,
+    padding: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 20
+  },
+  text: {
+    fontSize: 16,
+  },
+  buttonText: {
+    color: '#ffffff',
+    fontSize: 24,
+  }
 })

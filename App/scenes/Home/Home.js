@@ -4,7 +4,7 @@ import styles from './styles';
 
 const Home = ({ push, stash }) =>(
   <View style={styles.container}>
-    <TouchableHighlight style={styles.button} onPress={() => push({key: 'PreScout'})}>
+    <TouchableHighlight style={styles.button} onPress={() => push({key: 'Pre Match'})}>
       <Text style={styles.text}>Match Scout</Text>
     </TouchableHighlight>
     <TouchableHighlight style={styles.button} onPress={() => push({key: 'Logs'})}>

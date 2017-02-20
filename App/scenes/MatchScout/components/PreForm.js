@@ -16,22 +16,26 @@ class PreForm extends Component{
   onSubmitPress() {
     if((isNaN(this.state.match) || isNaN(this.state.team)) || (this.state.match === '' || this.state.team === '')){
       Alert.alert(
-        'Invalid match or team number',
-        'Please enter a valid match and team number'
+        'Invalid',
+        'Please enter a valid match and/or team number.'
       )
     } else {
       this.props.submit({match: this.state.match});
       this.props.submit({team: this.state.team});
-      this.props.push({key: 'AutonForm'});
+      this.props.push({key: 'Autonomous'});
     }
   }
 
   render() {
     return(
       <View style={styles.container}>
-        <TextInput placeholder={'Match number'} style={styles.textBox} onChangeText = {(text) => this.setState({match: text}) }/>
-        <TextInput placeholder={'Team number'} style={styles.textBox} onChangeText = {(text) => this.setState({team: text}) }/>
-        <LongButton  text={'submit'} onPress={() => this.onSubmitPress()}/>
+        <Text style={styles.text}>Match Number:</Text>
+        <TextInput placeholder={'Ex. 69'} style={styles.textBox} onChangeText = {(text) => this.setState({match: text}) }/>
+        <Text style={styles.text}>Team Number:</Text>
+        <TextInput placeholder={'Ex. 4159'} style={styles.textBox} onChangeText = {(text) => this.setState({team: text}) }/>
+        <TouchableHighlight style={styles.button} onPress={() => this.onSubmitPress()}>
+          <Text style={styles.buttonText}>Next</Text>
+        </TouchableHighlight>
       </View>
     )
   }
