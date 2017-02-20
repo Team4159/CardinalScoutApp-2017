@@ -48,7 +48,7 @@ class TeleopForm extends Component {
     <View style={styles.buttonContainer}>
       <Text> climbed?</Text>
       <Button text={'climbed'} style={this.props.data.scoreTouchPad ? {backgroundColor: 'gray'}:undefined } onPress={() => this.props.submit({scoreTouchPad: true})} disabled={this.props.data.scoreTouchPad}/>
-      <Button text={'!climb'} style={!this.props.data.scoreTouchPad ? {backgroundColor: 'gray'}:undefined } onPress={() => this.props.submit({scoreTouchPad: true})} disabled={this.props.data.reachTouchPad}/>
+      <Button text={'!climb'} style={!this.props.data.scoreTouchPad ? {backgroundColor: 'gray'}:undefined } onPress={() => this.props.submit({scoreTouchPad: false})} disabled={!this.props.data.scoreTouchPad}/>
     </View>
 
     <TextInput placeholder={'Additional comments you may have on the robot'} onChangeText={(text) => this.setState({comments: text})} style={styles.textBox}/>
