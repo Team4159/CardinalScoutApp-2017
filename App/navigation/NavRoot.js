@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Text } from 'react-native'
 import Home from '../scenes/Home'
 import Logs from '../scenes/Logs'
 import MatchScout from '../scenes/MatchScout'
