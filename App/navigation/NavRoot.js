@@ -7,7 +7,8 @@ import {
   NavigationExperimental,
   TouchableOpacity,
   Text,
-  View
+  View,
+  BackAndroid
 } from 'react-native'
 
 const {
@@ -31,10 +32,14 @@ class Header extends Component {
     );
   }
   _renderRightComponent = (props) => (
-    <TouchableOpacity>
-      <Text style={{color: 'blue'}}>cancle</Text>
+    <TouchableOpacity style={{justifyContent: 'center', padding: 15}} onPress={this._canclePress}>
+      <Text style={{color: 'blue', fontSize: 16}}>cancle</Text>
     </TouchableOpacity>
   )
+  _canclePress = () => {
+    this.props.reset()
+    this.props.resetData()
+  }
   _back = () => {
     this.props.pop()
   }
@@ -64,12 +69,20 @@ class NavRoot extends Component {
         return <Settings/>
     }
   }
+  componentDidMount () {
+    BackAndroid.addEventListener('hardwareBackPress', () =>this.props.pop())
+  }
+  componentWillUnmount () {
+    BackAndroid.removeEventListener('hardwareBackPress', () =>this.props.pop())
+  }
   _renderHeader = (sceneProps) => {
     const route = sceneProps.scene.route;
     if(route.key == 'Home') return null;
     return (
       <Header
         pop={this.props.pop}
+        reset={this.props.reset}
+        resetData={this.props.resetData}
         {...sceneProps}
       />
     );
