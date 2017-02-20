@@ -45,8 +45,8 @@ class NavRoot extends Component {
         return <Home />
       case 'Logs':
         return <Logs />
-      case 'MatchScout':
-        return <MatchScout />
+      case 'PreScout':
+        return <MatchScout scene='PreForm'/>
       case 'AutonForm':
         return <MatchScout scene='AutonForm' />
       case 'TeleopForm':

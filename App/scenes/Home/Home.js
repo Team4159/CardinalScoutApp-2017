@@ -1,15 +1,18 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import LongButton from '../../components/LongButton';
+import {View, Text, TouchableHighlight} from 'react-native';
 import styles from './styles';
-
 
 const Home = ({ push, stash }) =>(
   <View style={styles.container}>
-    <Text style = {styles.text}>Cardinal Scout App</Text>
-    <LongButton text='Match Scout' onPress={() => push({key: 'MatchScout'})}/>
-    <LongButton text='Logs' onPress={() => push({key: 'Logs'})}/>
-    <LongButton text='Settings' onPress={() => push({key: 'Settings'})}/>
+    <TouchableHighlight style={styles.button} onPress={() => push({key: 'PreScout'})}>
+      <Text style={styles.text}>Match Scout</Text>
+    </TouchableHighlight>
+    <TouchableHighlight style={styles.button} onPress={() => push({key: 'Logs'})}>
+      <Text style={styles.text}>Logs</Text>
+    </TouchableHighlight>
+    <TouchableHighlight style={styles.button} onPress={() => push({key: 'Settings'})}>
+      <Text style={styles.text}>Settings</Text>
+    </TouchableHighlight>
   </View>
 )
 export default Home;

@@ -1,9 +1,9 @@
 import { createStore, compose } from 'redux';
 import rootReducer from '../reducers';
 import { persistStore, autoRehydrate } from 'redux-persist';
-/* TODO composeEnhancers(
-  autoRehydrate()
-))*/
+// composeEnhancers(
+//   autoRehydrate()
+// ))
 export default function configureStore(){
   /* eslint-disable no-undef */
   //const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
