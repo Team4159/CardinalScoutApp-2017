@@ -6,12 +6,12 @@ export function submit(data){
     data
     }
 }
-export function csv(){
+export function csv() {
   return{
     type: CSV,
   }
 }
-export function resetData(){
+export function resetData() {
   return{
     type: RESET_DATA,
   }
