@@ -38,6 +38,7 @@ class Header extends Component {
     );
   }
 }
+
 class NavRoot extends Component {
   _renderScene = (props) => {
     switch(props.scene.route.key) {

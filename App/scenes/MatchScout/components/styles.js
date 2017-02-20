@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'flex-start',
     margin: 50
   },
   textBox: {
@@ -15,19 +14,19 @@ export default StyleSheet.create({
     marginTop: 10,
     marginBottom: 15
   },
-  buttonContainer:{
-    flex: 1,
+  row:{
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: 'flex-start',
+    paddingBottom: 20
   },
-  disabledButtons: {
-    margin: 10,
-    backgroundColor: 'gray',
-    borderRadius: 5,
-    height: 70,
-    width: 120,
+  disabledButton: {
+    backgroundColor: 'grey',
+    height: 40,
+    width: 45,
+    alignItems: 'center',
     justifyContent: 'center',
+    alignSelf: 'flex-end',
+    marginRight: 5
   },
   button: {
     backgroundColor: '#8b0000',
@@ -44,5 +43,21 @@ export default StyleSheet.create({
   buttonText: {
     color: '#ffffff',
     fontSize: 24,
+  },
+  counterButton: {
+    backgroundColor: '#8b0000',
+    height: 40,
+    width: 45,
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'flex-end',
+    marginRight: 5
+  },
+  rowText: {
+    fontSize: 20
+  },
+  counterText: {
+    fontSize: 20,
+    color: '#ffffff'
   }
 })
