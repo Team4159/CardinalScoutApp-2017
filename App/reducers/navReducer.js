@@ -15,6 +15,9 @@ function navReducer(state = initialRoute, action){
     case POP_ROUTE: {
       return NavigationStateUtils.pop(state)
     }
+    case RESET_ROUTE:{
+      return initialRoute;
+    }
     default:
       return state;
   }
