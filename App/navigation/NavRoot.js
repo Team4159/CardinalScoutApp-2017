@@ -4,6 +4,8 @@ import Logs from '../scenes/Logs'
 import MatchScout from '../scenes/MatchScout'
 import {
   NavigationExperimental,
+  TouchableOpacity,
+  Text
 } from 'react-native'
 
 const {
@@ -15,15 +17,21 @@ const {
 
 class Header extends Component {
   render() {
+    const  { scene } = this.props;
     return (
       <NavigationHeader
         {...this.props}
         renderTitleComponent={this._renderTitleComponent}
-        onNavigateBack={this._back}
+        onNavigateBack={scene.route.key==='MatchScout' ? null:this._back}
+        renderRightComponent={this._renderRightComponent}
       />
     );
   }
-
+  _renderRightComponent = (props) => (
+    <TouchableOpacity>
+      <Text>cancle</Text>
+    </TouchableOpacity>
+  )
   _back = () => {
     this.props.pop()
   }
@@ -52,6 +60,8 @@ class NavRoot extends Component {
     }
   }
   _renderHeader = (sceneProps) => {
+    const route = sceneProps.scene.route;
+    if(route.key == 'Home') return null;
     return (
       <Header
         pop={this.props.pop}
@@ -60,6 +70,7 @@ class NavRoot extends Component {
     );
   }
   render() {
+    const { navState } = this.props
     return (
       <NavigationCardStack
         renderHeader={this._renderHeader}
