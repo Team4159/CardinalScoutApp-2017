@@ -6,13 +6,15 @@ import Settings from '../scenes/Settings'
 import {
   NavigationExperimental,
   TouchableOpacity,
-  Text
+  Text,
+  View
 } from 'react-native'
 
 const {
-  CardStack: NavigationCardStack,
+  Card: NavigationCard,
   Header: NavigationHeader,
   StateUtils: NavigationStateUtils,
+  Transitioner: NavigationTransitioner
 } = NavigationExperimental
 
 
@@ -30,7 +32,7 @@ class Header extends Component {
   }
   _renderRightComponent = (props) => (
     <TouchableOpacity>
-      <Text>cancle</Text>
+      <Text style={{color: 'blue'}}>cancle</Text>
     </TouchableOpacity>
   )
   _back = () => {
@@ -73,12 +75,23 @@ class NavRoot extends Component {
     );
   }
   render() {
-    const { navState } = this.props
+    const { navState, pop } = this.props
     return (
-      <NavigationCardStack
+      <NavigationTransitioner
         renderHeader={this._renderHeader}
-        navigationState={this.props.navState}
-        renderScene={this._renderScene}
+        navigationState={navState}
+        render={props => (
+          <View style={{flex: 2}}>
+            <NavigationCard
+              {...props}
+              onNavigateBack={pop}
+              renderScene={this._renderScene}
+              key={props.scene.route.key}
+              panHandlers={props.scene.route.key === 'MatchScout' ? null: undefined}
+            />
+            {this._renderHeader(props)}
+          </View>
+        )}
       />
     )
   }
