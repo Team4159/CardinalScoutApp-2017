@@ -25,12 +25,12 @@ class MatchForm extends Component{
   }
   render(){
   return(
-  <View style={styles.container}>
-    <Text> Enter team and match </Text>
-    <TextInput placeholder={'Match number'} style={styles.textBox} onChangeText = {(text) => this.setState({match: text}) }/>
-    <TextInput placeholder={'Team number'} style={styles.textBox} onChangeText = {(text) => this.setState({team: text}) }/>
-    <LongButton  text={'submit'} onPress={() => this.onSubmitPress()}/>
-  </View>
+    <View style={styles.container}>
+      <Text> Enter team and match </Text>
+      <TextInput placeholder={'Match number'} style={styles.textBox} onChangeText = {(text) => this.setState({match: text}) }/>
+      <TextInput placeholder={'Team number'} style={styles.textBox} onChangeText = {(text) => this.setState({team: text}) }/>
+      <LongButton  text={'submit'} onPress={() => this.onSubmitPress()}/>
+    </View>
   )
   }
 }

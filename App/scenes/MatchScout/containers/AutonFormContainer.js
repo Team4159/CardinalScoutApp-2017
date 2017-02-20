@@ -30,13 +30,13 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(submit({autonGears: gear }));
       }
       }
-      if(key === 'ball high'){
+      if(key === 'ball high') {
       var ball = data.autonBallsHigh - 1;
       if(ball >= 0){
       dispatch(submit({autonBallsHigh: ball}));
       }
       }
-      if(key === 'ball low'){
+      if(key === 'ball low') {
       var ballL = data.autonBallsLow - 1;
       if(ballL >= 0){
       dispatch(submit({autonBallsLow: ballL}));
