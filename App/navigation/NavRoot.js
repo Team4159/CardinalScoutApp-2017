@@ -57,7 +57,7 @@ class NavRoot extends Component {
         return <Home/>
       case 'Logs':
         return <Logs/>
-      case 'Logs Data':
+      case 'QR':
         return <Logs scene='Data' info={route.data}/>
       case 'Pre Match':
         return <MatchScout scene='PreForm'/>
