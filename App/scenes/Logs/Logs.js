@@ -29,7 +29,7 @@ export const Logs = ({ word ,reset, data, push }) =>(
   <View style={{padding: 75}}>
     <Text>{word}</Text>
     {data.map((d) => (
-      <View style={styles.row}>
+      <View style={styles.row} key={d.id}>
         <Text>Match: {d.data.match} Team: {d.data.team}</Text>
         <SmallButton style={{}} text='QR' key={d.id} onPress={() => push({key:'QR', data: d})}/>
         <SmallButton text='E'/>

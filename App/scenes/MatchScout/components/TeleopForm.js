@@ -41,14 +41,14 @@ class TeleopForm extends Component {
 
           <Text style={styles.rowText}>Touch Pad?</Text>
           <View style={styles.row}>
-            <SmallButton text='T' style={this.props.data.reachTouchPad ? styles.disabledButton:styles.counterButton } onPress={() => this.props.submit({reachTouchPad: true})} disabled={this.props.data.reachTouchPad} />
-            <SmallButton text='F'style={!this.props.data.reachTouchPad ? styles.disabledButton : styles.counterButton} onPress={() => this.props.submit({reachTouchPad: false})} disabled={!this.props.data.reachTouchPad}/>
+            <SmallButton text='T' style={this.props.data.reachTouchPad ? {backgroundColor:'gray'}:styles.counterButton } onPress={() => this.props.submit({reachTouchPad: true})} disabled={this.props.data.reachTouchPad} />
+            <SmallButton text='F'style={!this.props.data.reachTouchPad ? {backgroundColor:'gray'} : styles.counterButton} onPress={() => this.props.submit({reachTouchPad: false})} disabled={!this.props.data.reachTouchPad}/>
           </View>
 
           <Text style={styles.rowText}>Climb?</Text>
           <View style={styles.row}>
-            <SmallButton text='T'style={this.props.data.scoreTouchPad ? styles.disabledButton:styles.counterButton } onPress={() => this.props.submit({scoreTouchPad: true})} disabled={this.props.data.scoreTouchPad}/>
-            <SmallButton text='F' style={!this.props.data.scoreTouchPad ? styles.disabledButton : styles.counterButton} onPress={() => this.props.submit({scoreTouchPad: false})} disabled={!this.props.data.scoreTouchPad}/>
+            <SmallButton text='T'style={this.props.data.scoreTouchPad ? {backgroundColor:'gray'}:styles.counterButton } onPress={() => this.props.submit({scoreTouchPad: true})} disabled={this.props.data.scoreTouchPad}/>
+            <SmallButton text='F' style={!this.props.data.scoreTouchPad ? {backgroundColor:'gray'} : styles.counterButton} onPress={() => this.props.submit({scoreTouchPad: false})} disabled={!this.props.data.scoreTouchPad}/>
           </View>
 
           <Text style={styles.rowText}>Important comments</Text>

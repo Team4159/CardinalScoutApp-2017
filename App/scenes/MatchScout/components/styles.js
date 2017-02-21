@@ -20,40 +20,8 @@ export default StyleSheet.create({
     alignItems: 'flex-start',
     paddingBottom: 20
   },
-  disabledButton: {
-    backgroundColor: 'grey',
-    height: 40,
-    width: 45,
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'flex-end',
-    marginRight: 5
-  },
-  button: {
-    backgroundColor: '#8b0000',
-    width: 250,
-    height: 50,
-    padding: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 20,
-    borderRadius: 7
-  },
   text: {
     fontSize: 16,
-  },
-  buttonText: {
-    color: '#ffffff',
-    fontSize: 24,
-  },
-  counterButton: {
-    backgroundColor: '#8b0000',
-    height: 40,
-    width: 45,
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'flex-end',
-    marginRight: 5
   },
   rowText: {
     fontSize: 20

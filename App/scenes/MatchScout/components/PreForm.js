@@ -34,9 +34,7 @@ class PreForm extends Component{
         <TextInput placeholder={'Ex. 69'} style={styles.textBox} onChangeText = {(text) => this.setState({match: text}) }/>
         <Text style={styles.text}>Team Number:</Text>
         <TextInput placeholder={'Ex. 4159'} style={styles.textBox} onChangeText = {(text) => this.setState({team: text}) }/>
-        <TouchableHighlight style={styles.button} onPress={() => this.onSubmitPress()}>
-          <Text style={styles.buttonText}>Next</Text>
-        </TouchableHighlight>
+        <BigButton onPress={() => this.onSubmitPress()} text='next' />
       </View>
     )
   }
