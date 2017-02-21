@@ -8,7 +8,7 @@ const SmallButton = ({ onPress, text, disabled, style }) =>(
   </TouchableOpacity>
 )
 
-Button.defaultProps = {
+SmallButton.defaultProps = {
   text: "small button",
   disabled: false,
 };

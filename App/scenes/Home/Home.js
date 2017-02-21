@@ -1,18 +1,13 @@
 import React from 'react';
 import {View, Text, TouchableHighlight} from 'react-native';
+import BigButton from '../../components/BigButton';
 import styles from './styles';
 
 const Home = ({ push, stash }) =>(
   <View style={styles.container}>
-    <TouchableHighlight style={styles.button} onPress={() => push({key: 'Pre Match'})}>
-      <Text style={styles.text}>Match Scout</Text>
-    </TouchableHighlight>
-    <TouchableHighlight style={styles.button} onPress={() => push({key: 'Logs'})}>
-      <Text style={styles.text}>Logs</Text>
-    </TouchableHighlight>
-    <TouchableHighlight style={styles.button} onPress={() => push({key: 'Settings'})}>
-      <Text style={styles.text}>Settings</Text>
-    </TouchableHighlight>
+    <BigButton onPress={() => push({key: 'Pre Match'})} style={{height:60}} text='Match Scout' />
+    <BigButton onPress={() => push({key: 'Logs'})} style={{ height:60}} text='Logs'/>
+    <BigButton onPress={() => push({key: 'Settings'})} style={{height:60}} text='Settings' />
   </View>
 )
 export default Home;

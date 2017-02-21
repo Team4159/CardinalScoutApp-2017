@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { View, Text, TextInput, Alert } from 'react-native';
-import LongButton from '../../../components/LongButton';
+import BigButton from '../../../components/BigButton';
 import styles from './styles';
 class MatchForm extends Component{
   constructor(props){
@@ -29,7 +29,7 @@ class MatchForm extends Component{
       <Text> Enter team and match </Text>
       <TextInput placeholder={'Match number'} style={styles.textBox} onChangeText = {(text) => this.setState({match: text}) }/>
       <TextInput placeholder={'Team number'} style={styles.textBox} onChangeText = {(text) => this.setState({team: text}) }/>
-      <LongButton  text={'submit'} onPress={() => this.onSubmitPress()}/>
+      <BigButton  text={'submit'} onPress={() => this.onSubmitPress()}/>
     </View>
   )
   }

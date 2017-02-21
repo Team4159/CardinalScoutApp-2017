@@ -10,12 +10,12 @@ const BigButton = (props) => {
  )
 }
 
-LongButton.propTypes = {
+BigButton.propTypes = {
   text: React.PropTypes.string,
   onPress: React.PropTypes.func,
 };
 
-LongButton.defaultProps = {
+BigButton.defaultProps = {
   text: "big button",
   // eslint-disable-next-line no-console
   onPress: () => console.log("a long button is pressed"),
