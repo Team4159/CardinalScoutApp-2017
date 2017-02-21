@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import MatchForm from '../components/MatchForm'
+import PreForm from '../components/PreForm'
 import { push, pop } from '../../../actions/navActions'
 import { submit } from '../../../actions/dataActions'
 function mapStateToProps (state) {
@@ -15,4 +15,4 @@ function mapDispatchToProps (dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MatchForm)
+)(PreForm)

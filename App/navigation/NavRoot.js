@@ -6,13 +6,15 @@ import Settings from '../scenes/Settings'
 import {
   NavigationExperimental,
   TouchableOpacity,
-  Text
+  Text,
+  View
 } from 'react-native'
 
 const {
-  CardStack: NavigationCardStack,
+  Card: NavigationCard,
   Header: NavigationHeader,
   StateUtils: NavigationStateUtils,
+  Transitioner: NavigationTransitioner,
 } = NavigationExperimental
 
 
@@ -30,7 +32,7 @@ class Header extends Component {
   }
   _renderRightComponent = (props) => (
     <TouchableOpacity>
-      <Text>cancle</Text>
+      <Text>Cancel</Text>
     </TouchableOpacity>
   )
   _back = () => {
@@ -45,18 +47,19 @@ class Header extends Component {
     );
   }
 }
+
 class NavRoot extends Component {
   _renderScene = (props) => {
     switch(props.scene.route.key) {
       case 'Home':
-        return <Home />
+        return <Home/>
       case 'Logs':
-        return <Logs />
-      case 'MatchScout':
-        return <MatchScout />
-      case 'AutonForm':
+        return <Logs/>
+      case 'Pre Match':
+        return <MatchScout scene='PreForm'/>
+      case 'Autonomous':
         return <MatchScout scene='AutonForm' />
-      case 'TeleopForm':
+      case 'Teleop':
         return <MatchScout scene='TeleopForm' />
       case 'Settings':
         return <Settings/>
@@ -73,12 +76,22 @@ class NavRoot extends Component {
     );
   }
   render() {
-    const { navState } = this.props
+    const { navState, pop } = this.props
     return (
-      <NavigationCardStack
-        renderHeader={this._renderHeader}
-        navigationState={this.props.navState}
-        renderScene={this._renderScene}
+      <NavigationTransitioner
+          navigationState={navState}
+          render={props => {
+            <View>
+              <NavigationCard
+                {...props}
+                onNavigateBack={pop}
+                panHandlers={props.scene.route.key==='Pre Match' ? null:undefined}
+                renderScene={this._renderScene}
+                key={props.scene.route.key}
+              />
+              {this._renderHeader(props)}
+            </View>
+          }}
       />
     )
   }

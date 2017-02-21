@@ -1,40 +1,38 @@
 import React, { Component } from 'react';
-import Button from '../../../components/Button';
-import { View, Text, TextInput } from 'react-native';
-import LongButton from '../../../components/LongButton';
+import { View, Text, TextInput, TouchableHighlight, Switch} from 'react-native';
+import SmallButton from '../../../components/SmallButton';
+import BigButton from '../../../components/BigButton';
 import styles from './styles';
+
 const AutonForm = ({ onPlusPress, onMinusPress, push, submit, data }) =>{
   return(
     <View style={styles.container}>
-      <Text> Autonomous Scouting </Text>
-      <View style={styles.buttonContainer}>
-        <Text> Gears </Text>
-        <Button  text={'+'} onPress={() => onPlusPress('gear', data)}/>
-        <Button text={'-'} onPress={() => onMinusPress('gear', data)} />
-        <Text>{data.autonGears}</Text>
+
+      <Text style={styles.rowText}>Gears: {data.autonGears}</Text>
+      <View style={styles.row}>
+        <SmallButton onPress={() => onPlusPress('gear', data)} text='+' />
+        <SmallButton onPress={() => onMinusPress('gear', data)} text='-'/>
       </View>
 
-      <View style={styles.buttonContainer}>
-        <Text> Balls High </Text>
-        <Button  text={'+'} onPress={() => onPlusPress('ball high', data)}/>
-        <Button text={'-'} onPress={() => onMinusPress('ball high', data)} />
-        <Text>{data.autonBallsHigh}</Text>
+      <Text style={styles.rowText}>High Goal: {data.autonBallsHigh}</Text>
+      <View style={styles.row}>
+        <SmallButton onPress={() => onPlusPress('ball high', data)} text='+' />
+        <SmallButton onPress={() => onMinusPress('ball high', data)} text='-'/>
       </View>
 
-      <View style={styles.buttonContainer}>
-        <Text> Balls Low </Text>
-        <Button  text={'+'} onPress={() => onPlusPress('ball low', data)}/>
-        <Button text={'-'} onPress={() => onMinusPress('ball low', data)} />
-        <Text>{data.autonBallsLow}</Text>
+      <Text style={styles.rowText}>Low Goal: {data.autonBallsLow}</Text>
+      <View style={styles.row}>
+        <SmallButton onPress={() => onPlusPress('ball low', data)} text='+' />
+        <SmallButton onPress={() => onMinusPress('ball low', data)} text='-' />
       </View>
 
-      <View style={styles.buttonContainer}>
-        <Text>cross?</Text>
-        <Button text={'cross'} style={data.cross ? {backgroundColor: 'gray'}:undefined } onPress={() => submit({cross: true})} disabled={data.cross}/>
-        <Button text={'!cross'} style={!data.cross ? {backgroundColor: 'gray'}:undefined} onPress={() => submit({cross: false})} disabled={!data.cross}/>
+      <Text style={styles.rowText}>Cross</Text>
+      <View style={styles.row}>
+        <SmallButton text='T'style={data.cross ? styles.disabledButton:styles.counterButton } onPress={() => submit({cross: true})} disabled={data.cross}/>
+        <SmallButton text='F' style={!data.cross ? styles.disabledButton: styles.counterButton} onPress={() => submit({cross: false})} disabled={!data.cross}/>
       </View>
 
-      <LongButton text={'Next'} onPress={() => push({key: 'TeleopForm'})}/>
+      <BigButton text='Next' onPress={() => push({key: 'Teleop'})}/>
     </View>
   )
 }

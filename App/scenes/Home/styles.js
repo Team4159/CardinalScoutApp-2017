@@ -6,9 +6,22 @@ export default StyleSheet.create({
     padding: 50,
     alignItems: 'center',
   },
-  text: {
-    color: '#333333',
-    fontSize: 20,
-    padding: 10
+  button: {
+    backgroundColor: '#8b0000',
+    width: 250,
+    height: 60,
+    padding: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 20
   },
+  text: {
+    color: '#ffffff',
+    fontSize: 24,
+  },
+  title: {
+    fontSize: 30,
+    color: '#8b0000',
+    fontFamily: 'Avenir'
+  }
 })

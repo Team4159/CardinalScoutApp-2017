@@ -2,9 +2,11 @@ import { connect } from 'react-redux'
 import TeleopForm from '../components/TeleopForm'
 import { push, pop, reset } from '../../../actions/navActions'
 import { submit, resetData, stash } from '../../../actions/dataActions'
+
 function mapStateToProps (state) {
   return { data: state.data.temporaryData }
 }
+
 function mapDispatchToProps (dispatch) {
   return {
     push: (route) => dispatch(push(route)),
@@ -51,6 +53,7 @@ function mapDispatchToProps (dispatch) {
     }
   }
 }
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
