@@ -3,7 +3,8 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    margin: 50
+    margin: 50,
+    paddingTop: 25,
   },
   textBox: {
     height: 50,

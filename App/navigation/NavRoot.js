@@ -50,11 +50,14 @@ class Header extends Component {
 
 class NavRoot extends Component {
   _renderScene = (props) => {
-    switch(props.scene.route.key) {
+    const route = props.scene.route
+    switch(route.key) {
       case 'Home':
         return <Home/>
       case 'Logs':
         return <Logs/>
+      case 'Logs Data':
+        return <Logs scene='Data' info={route.data}/>
       case 'Pre Match':
         return <MatchScout scene='PreForm'/>
       case 'Autonomous':
@@ -79,22 +82,22 @@ class NavRoot extends Component {
     const { navState, pop } = this.props
     return (
       <NavigationTransitioner
-          navigationState={navState}
-          render={props => {
-            <View>
-              <NavigationCard
-                {...props}
-                onNavigateBack={pop}
-                panHandlers={props.scene.route.key==='Pre Match' ? null:undefined}
-                renderScene={this._renderScene}
-                key={props.scene.route.key}
-              />
-              {this._renderHeader(props)}
-            </View>
-          }}
+        renderHeader={this._renderHeader}
+        navigationState={navState}
+        render={props => (
+          <View style={{flex: 2}}>
+            <NavigationCard
+              {...props}
+              onNavigateBack={pop}
+              renderScene={this._renderScene}
+              key={props.scene.route.key}
+              panHandlers={props.scene.route.key === 'MatchScout' ? null: undefined}
+            />
+            {this._renderHeader(props)}
+          </View>
+        )}
       />
     )
-  }
+    }
 }
-
 export default NavRoot
