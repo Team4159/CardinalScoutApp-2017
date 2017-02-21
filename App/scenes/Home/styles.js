@@ -19,4 +19,9 @@ export default StyleSheet.create({
     color: '#ffffff',
     fontSize: 24,
   },
+  title: {
+    fontSize: 30,
+    color: '#8b0000',
+    fontFamily: 'Avenir'
+  }
 })

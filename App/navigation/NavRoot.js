@@ -30,7 +30,7 @@ class Header extends Component {
   }
   _renderRightComponent = (props) => (
     <TouchableOpacity>
-      <Text>cancle</Text>
+      <Text>Cancel</Text>
     </TouchableOpacity>
   )
   _back = () => {
