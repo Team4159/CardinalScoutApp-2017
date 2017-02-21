@@ -11,10 +11,10 @@ class MatchScout extends Component{
     this.renderScene = this.renderScene.bind(this);
   }
   renderScene = (scene) =>{
-      if(scene === 'AutonForm'){
+      if(scene === 'AutonForm') {
         return <AutonForm />
       }
-      if(scene === 'TeleopForm'){
+      if(scene === 'TeleopForm') {
         return <TeleopForm />
       }
         return <PreForm />

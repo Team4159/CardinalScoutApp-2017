@@ -6,7 +6,7 @@ import { persistStore } from 'redux-persist';
 import NavRootContainer from './navigation/NavRootContainer';
 
 const store = configureStore()
-//persistStore(store, {storage: AsyncStorage})
+persistStore(store, {storage: AsyncStorage})
 const App = () => (
   <Provider store={store}>
     <NavRootContainer />

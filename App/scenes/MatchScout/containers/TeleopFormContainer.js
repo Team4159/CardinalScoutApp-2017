@@ -13,15 +13,15 @@ function mapDispatchToProps (dispatch) {
     submit: (data) => dispatch(submit(data)),
     reset: (route) => dispatch(reset(route)),
     onPlusPress: (key, data) => {
-      if(key === 'gear'){
+      if(key === 'gear') {
       var gear = data.teleopGears + 1;
       dispatch(submit({teleopGears: gear }));
       }
-      if(key === 'ball high'){
+      if(key === 'ball high') {
       var ball = data.teleopBallsHigh + 1;
       dispatch(submit({teleopBallsHigh: ball}));
       }
-      if(key === 'ball low'){
+      if(key === 'ball low') {
       var ballL = data.teleopBallsLow + 1;
       dispatch(submit({teleopBallsLow: ballL}));
       }
@@ -33,13 +33,13 @@ function mapDispatchToProps (dispatch) {
       dispatch(submit({teleopGears: gear }));
       }
       }
-      if(key === 'ball high'){
+      if(key === 'ball high') {
       var ball = data.teleopBallsHigh - 1;
       if(ball >= 0){
       dispatch(submit({teleopBallsHigh: ball}));
       }
       }
-      if(key === 'ball low'){
+      if(key === 'ball low') {
       var ballL = data.teleopBallsLow - 1;
       if(ballL >= 0){
       dispatch(submit({teleopBallsLow: ballL}));
