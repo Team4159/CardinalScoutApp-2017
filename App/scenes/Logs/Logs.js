@@ -1,12 +1,13 @@
 import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import BigButton from '../../components/BigButton';
-const commas = (d) => {
+import QRCode from 'react-native-qrcode';
+const commas = (d, ch) => {
   var names = Object.keys(d);
   var data = Object.values(d);
   var str = ""
   for(var i = 0; i < names.length; i++){
-    str += names[i] + " = " + data[i] + "\n"
+    str += names[i] + " = " + data[i] + ch
   }
   return str;
 }
@@ -22,7 +23,8 @@ export const Logs = ({ word ,reset, data, push }) =>(
   </View>
 )
 export const DataContainer = ({ info }) =>(
-  <View style={{paddingTop:100}}>
-    <Text>{commas(info.data)}</Text>
+  <View style={{paddingTop:100, alignItems:'center'}}>
+    <Text>{commas(info.data, '\n')}</Text>
+    <QRCode vale={commas(info.data, ' , ')} size={200}/>
   </View>
 )
