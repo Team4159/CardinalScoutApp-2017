@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableHighlight, ScrollView } from 'react-native';
+import Button from '../../../components/Button';
 import styles from './styles';
 
 class TeleopForm extends Component {

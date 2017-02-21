@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { View, Text, TextInput, Alert, TouchableHighlight } from 'react-native';
+import LongButton from '../../../components/LongButton';
 import styles from './styles';
 
 class PreForm extends Component{

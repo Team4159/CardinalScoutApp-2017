@@ -3,16 +3,16 @@ import { colors } from '../../config/styles';
 
 export default StyleSheet.create({
   buttons: {
-    margin: 10,
-    backgroundColor: colors.buttonColor,
-    borderRadius: 5,
-    height: 50,
-    width: 100,
+    backgroundColor: '#8b0000',
+    height: 40,
+    width: 45,
+    alignItems: 'center',
     justifyContent: 'center',
-
+    alignSelf: 'flex-end',
+    marginRight: 5
   },
   buttonText: {
-    fontSize: 26,
-    textAlign: 'center'
+    color: '#ffffff',
+    fontSize: 24,
   }
 })
