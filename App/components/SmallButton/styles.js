@@ -9,7 +9,8 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'flex-end',
-    marginRight: 5
+    marginRight: 5,
+    borderRadius: 7
   },
   buttonText: {
     color: '#ffffff',

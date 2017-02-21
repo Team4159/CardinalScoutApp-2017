@@ -8,7 +8,8 @@ export default StyleSheet.create({
     padding: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 20
+    marginTop: 20,
+    borderRadius: 7
   },
   buttonText: {
     color: '#ffffff',
