@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import BigButton from '../../components/BigButton';
+import SmallButton from '../../components/SmallButton';
 import QRCode from '../../lib/react-native-qrcode';
+import styles from './styles';
 
 const display = (d, ch) => {
   var names = Object.keys(d);
@@ -27,10 +29,13 @@ export const Logs = ({ word ,reset, data, push }) =>(
   <View style={{padding: 75}}>
     <Text>{word}</Text>
     {data.map((d) => (
-      <TouchableOpacity key={d.id} onPress={() => push({key:'QR', data: d})}>
-      <Text>Match: {d.data.match} Team: {d.data.team}</Text>
-    </TouchableOpacity>
-  ))}
+      <View style={styles.row}>
+        <Text>Match: {d.data.match} Team: {d.data.team}</Text>
+        <SmallButton style={{}} text='QR' key={d.id} onPress={() => push({key:'QR', data: d})}/>
+        <SmallButton text='E'/>
+        <SmallButton text='X'/>
+      </View>
+    ))}
   </View>
 )
 

@@ -33,7 +33,7 @@ class Header extends Component {
   }
   _renderRightComponent = (props) => (
     <TouchableOpacity onPress={() => this.props.cancelPressed()}>
-      <Text>Cancel</Text>
+      <Text style={{marginTop: 13, marginRight: 13}}>Cancel</Text>
     </TouchableOpacity>
   )
   _back = () => {
