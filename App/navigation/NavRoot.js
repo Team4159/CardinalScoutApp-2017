@@ -15,7 +15,7 @@ const {
   Card: NavigationCard,
   Header: NavigationHeader,
   StateUtils: NavigationStateUtils,
-  Transitioner: NavigationTransitioner
+  Transitioner: NavigationTransitioner,
 } = NavigationExperimental
 
 
@@ -26,20 +26,16 @@ class Header extends Component {
       <NavigationHeader
         {...this.props}
         renderTitleComponent={this._renderTitleComponent}
-        onNavigateBack={scene.route.key==='MatchScout' ? null:this._back}
+        onNavigateBack={scene.route.key==='Pre Match' ? null:this._back}
         renderRightComponent={this._renderRightComponent}
       />
     );
   }
   _renderRightComponent = (props) => (
-    <TouchableOpacity style={{justifyContent: 'center', padding: 15}} onPress={this._cancelPress}>
-      <Text style={{color: 'blue', fontSize: 16}}>cancel</Text>
+    <TouchableOpacity onPress={() => this.props.cancelPressed()}>
+      <Text>Cancel</Text>
     </TouchableOpacity>
   )
-  _cancelPress = () => {
-    this.props.reset()
-    this.props.resetData()
-  }
   _back = () => {
     this.props.pop()
   }
@@ -52,18 +48,22 @@ class Header extends Component {
     );
   }
 }
+
 class NavRoot extends Component {
   _renderScene = (props) => {
-    switch(props.scene.route.key) {
+    const route = props.scene.route
+    switch(route.key) {
       case 'Home':
-        return <Home />
+        return <Home/>
       case 'Logs':
-        return <Logs />
-      case 'MatchScout':
-        return <MatchScout />
-      case 'AutonForm':
+        return <Logs/>
+      case 'Logs Data':
+        return <Logs scene='Data' info={route.data}/>
+      case 'Pre Match':
+        return <MatchScout scene='PreForm'/>
+      case 'Autonomous':
         return <MatchScout scene='AutonForm' />
-      case 'TeleopForm':
+      case 'Teleop':
         return <MatchScout scene='TeleopForm' />
       case 'Settings':
         return <Settings/>
@@ -81,8 +81,7 @@ class NavRoot extends Component {
     return (
       <Header
         pop={this.props.pop}
-        reset={this.props.reset}
-        resetData={this.props.resetData}
+        cancelPressed = {this.props.cancelPressed}
         {...sceneProps}
       />
     );
@@ -107,7 +106,6 @@ class NavRoot extends Component {
         )}
       />
     )
-  }
+    }
 }
-
 export default NavRoot

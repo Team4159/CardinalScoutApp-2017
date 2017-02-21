@@ -1,7 +1,7 @@
 # CardinalScout-2017
 [![Build Status](https://travis-ci.org/Team4159/CardinalScout-2017.svg?branch=master)](https://travis-ci.org/Team4159/CardinalScout-2017)
 
-This is a scouting app built on React Native. It will soon work with the CardinalDesktop backend application.
+This is a scouting app built on React Native. It is currently in development. It will soon work with the CardinalDesktop backend application.
 
 ###Contributors
 - Check out the projects for a list of things todo.

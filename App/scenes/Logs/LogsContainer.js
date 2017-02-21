@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
-import { pop } from '../../actions/navActions';
+import React, { Component } from 'react';
+import { pop, push } from '../../actions/navActions';
 import { resetStoredData } from '../../actions/dataActions';
-import Logs from './Logs';
+import { Logs } from './Logs';
 function mapStateToProps (state) {
   return {
     data: state.data.storedData.stash
@@ -10,6 +11,7 @@ function mapStateToProps (state) {
 function mapDispatchToProps (dispatch) {
   return {
     reset: () => dispatch(resetStoredData()),
+    push: (data) => dispatch(push(data))
   }
 }
 

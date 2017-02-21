@@ -1,60 +1,63 @@
 import React, { Component } from 'react';
-import Button from '../../../components/Button';
-import { ScrollView,View, Text, TextInput } from 'react-native';
-import LongButton from '../../../components/LongButton';
+import { View, Text, TextInput, TouchableHighlight, ScrollView } from 'react-native';
+import SmallButton from '../../../components/SmallButton';
+import BigButton from '../../../components/BigButton';
 import styles from './styles';
+
 class TeleopForm extends Component {
-  constructor(props){
+
+  constructor(props) {
     super(props)
     this.state = {comments: ''}
     this.nextPress = this.nextPress.bind(this)
   }
-  nextPress(){
+
+  nextPress() {
     this.props.submit({comments: this.state.comments})
     this.props.onNextPress({key: 'Home'})
   }
-  render(){
-  return(
-  <ScrollView contentContainerStyle={styles.container}>
-    <Text> Teleop Scouting </Text>
 
-    <View style={styles.buttonContainer}>
-      <Text> Gears </Text>
-      <Button  text={'+'} onPress={() => this.props.onPlusPress('gear', this.props.data)}/>
-      <Button text={'-'} onPress={() => this.props.onMinusPress('gear', this.props.data)} />
-      <Text>{this.props.data.teleopGears}</Text>
-    </View>
+  render() {
+    return(
+      <ScrollView style={styles.container}>
 
-    <View style={styles.buttonContainer}>
-      <Text> Balls High </Text>
-      <Button  text={'+'} onPress={() => this.props.onPlusPress('ball high', this.props.data)}/>
-      <Button text={'-'} onPress={() => this.props.onMinusPress('ball high', this.props.data)} />
-      <Text>{this.props.data.teleopBallsHigh}</Text>
-    </View>
+        <Text style={styles.rowText}>Gears: {this.props.data.teleopGears}</Text>
+        <View style={styles.row}>
+          <SmallButton onPress={() => this.props.onPlusPress('gear', this.props.data)} text='+'/>
+          <SmallButton text='-' onPress={() => this.props.onMinusPress('gear', this.props.data)}/>
+        </View>
 
-    <View style={styles.buttonContainer}>
-      <Text> Balls Low </Text>
-      <Button  text={'+'} onPress={() => this.props.onPlusPress('ball low', this.props.data)}/>
-      <Button text={'-'} onPress={() => this.props.onMinusPress('ball low', this.props.data)} />
-      <Text>{this.props.data.teleopBallsLow}</Text>
-    </View>
+        <Text style={styles.rowText}>High Goals: {this.props.data.teleopBallsHigh}</Text>
+        <View style={styles.row}>
+          <SmallButton onPress={() => this.props.onPlusPress('ball high', this.props.data)} text='+'/>
+          <SmallButton onPress={() => this.props.onMinusPress('ball high', this.props.data)} text='-'/>
+        </View>
+        <Text style={styles.rowText}>Low Goals: {this.props.data.teleopBallsLow}</Text>
+        <View style={styles.row}>
+          <SmallButton onPress={() => this.props.onPlusPress('ball low', this.props.data)} text='+'/>
+          <SmallButton onPress={() => this.props.onMinusPress('ball low', this.props.data)} text='-'/>
+        </View>
 
-    <View style={styles.buttonContainer}>
-      <Text>reached Touch Pad?</Text>
-      <Button text={'reached'} style={this.props.data.reachTouchPad ? {backgroundColor: 'gray'}:undefined } onPress={() => this.props.submit({reachTouchPad: true})} disabled={this.props.data.reachTouchPad}/>
-      <Button text={'!reach'} style={!this.props.data.reachTouchPad ? {backgroundColor: 'gray'}:undefined} onPress={() => this.props.submit({reachTouchPad: false})} disabled={!this.props.data.reachTouchPad}/>
-    </View>
+        <Text style={styles.rowText}>Touch Pad?</Text>
+        <View style={styles.row}>
+          <SmallButton text='T' style={this.props.data.reachTouchPad ? styles.disabledButton:styles.counterButton } onPress={() => this.props.submit({reachTouchPad: true})} disabled={this.props.data.reachTouchPad} />
+          <SmallButton text='F'style={!this.props.data.reachTouchPad ? styles.disabledButton : styles.counterButton} onPress={() => this.props.submit({reachTouchPad: false})} disabled={!this.props.data.reachTouchPad}/>
+        </View>
 
-    <View style={styles.buttonContainer}>
-      <Text> climbed?</Text>
-      <Button text={'climbed'} style={this.props.data.scoreTouchPad ? {backgroundColor: 'gray'}:undefined } onPress={() => this.props.submit({scoreTouchPad: true})} disabled={this.props.data.scoreTouchPad}/>
-      <Button text={'!climb'} style={!this.props.data.scoreTouchPad ? {backgroundColor: 'gray'}:undefined } onPress={() => this.props.submit({scoreTouchPad: false})} disabled={!this.props.data.scoreTouchPad}/>
-    </View>
+        <Text style={styles.rowText}>Climb?</Text>
+        <View style={styles.row}>
+          <SmallButton text='T'style={this.props.data.scoreTouchPad ? styles.disabledButton:styles.counterButton } onPress={() => this.props.submit({scoreTouchPad: true})} disabled={this.props.data.scoreTouchPad}/>
+          <SmallButton text='F' style={!this.props.data.scoreTouchPad ? styles.disabledButton : styles.counterButton} onPress={() => this.props.submit({scoreTouchPad: false})} disabled={!this.props.data.scoreTouchPad}/>
+        </View>
 
-    <TextInput placeholder={'Additional comments you may have on the robot'} onChangeText={(text) => this.setState({comments: text})} style={styles.textBox}/>
-    <LongButton text={'Submit'} onPress={() => this.nextPress()} />
-  </ScrollView>
-  )
+        <Text style={styles.rowText}>Important comments</Text>
+        <TextInput placeholder={'Ex. Died on field'} onChangeText={(text) => this.setState({comments: text})} style={styles.textBox}/>
+
+        <BigButton onPress={() => this.nextPress()} text='Done' />
+
+      </ScrollView>
+    )
+  }
 }
-}
+
 export default TeleopForm;
