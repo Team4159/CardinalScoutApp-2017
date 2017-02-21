@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
 import styles from './styles';
-const LongButton = (props) => {
+const BigButton = (props) => {
   const { text, onPress, style } = props;
   return(
   <TouchableOpacity onPress={onPress} style={styles.buttons}>
@@ -16,9 +16,9 @@ LongButton.propTypes = {
 };
 
 LongButton.defaultProps = {
-  text: "a Long Button",
+  text: "big button",
   // eslint-disable-next-line no-console
   onPress: () => console.log("a long button is pressed"),
 };
 
-export default LongButton;
+export default BigButton;
