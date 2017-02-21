@@ -49,7 +49,6 @@ const AutonForm = ({ onPlusPress, onMinusPress, push, submit, data }) =>{
       <TouchableHighlight style={styles.button} onPress={() => push({key: 'Teleop'})}>
         <Text style={styles.buttonText}>Next</Text>
       </TouchableHighlight>
-
     </View>
   )
 }
