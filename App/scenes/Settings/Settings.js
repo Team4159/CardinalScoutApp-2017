@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, Alert } from 'react-native';
-import LongButton from '../../components/LongButton';
+import BigButton from '../../components/BigButton';
 import styles from './styles';
 class Settings extends Component{
   state = { uid: '', press: 0}
@@ -16,8 +16,8 @@ class Settings extends Component{
   return(
       <View style = {styles.container}>
         <TextInput style={styles.textBox} onChangeText={text => {this.setState({uid: text})}}/>
-        {uid=='' ? <LongButton onPress={() => onPress(this.state.uid)} text={'Hello'}/>: <Text>RIP</Text>}
-        <LongButton onPress={() => times()}/>
+        {uid=='' ? <BigButton onPress={() => onPress(this.state.uid)} text={'Hello'}/>: <Text>RIP</Text>}
+        <BigButton onPress={() => times()}/>
       </View>
     )
 }
