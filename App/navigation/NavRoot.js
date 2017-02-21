@@ -30,7 +30,7 @@ class Header extends Component {
   }
   _renderRightComponent = (props) => (
     <TouchableOpacity>
-      <Text>cancle</Text>
+      <Text>Cancel</Text>
     </TouchableOpacity>
   )
   _back = () => {
@@ -45,18 +45,19 @@ class Header extends Component {
     );
   }
 }
+
 class NavRoot extends Component {
   _renderScene = (props) => {
     switch(props.scene.route.key) {
       case 'Home':
-        return <Home />
+        return <Home/>
       case 'Logs':
-        return <Logs />
-      case 'MatchScout':
-        return <MatchScout />
-      case 'AutonForm':
+        return <Logs/>
+      case 'Pre Match':
+        return <MatchScout scene='PreForm'/>
+      case 'Autonomous':
         return <MatchScout scene='AutonForm' />
-      case 'TeleopForm':
+      case 'Teleop':
         return <MatchScout scene='TeleopForm' />
       case 'Settings':
         return <Settings/>
