@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableHighlight, ScrollView } from 'react-native';
+import { View, Text, TextInput, TouchableHighlight, ScrollView, Alert } from 'react-native';
 import SmallButton from '../../../components/SmallButton';
 import BigButton from '../../../components/BigButton';
 import styles from './styles';
 
+const display = (d, ch) => {
+  var names = Object.keys(d);
+  var data = Object.values(d);
+  var str = "";
+  for(var i = 0; i < names.length; i++){
+    str += names[i] + " = " + data[i] + ch
+  }
+  return str;
+}
 class TeleopForm extends Component {
 
   constructor(props) {
@@ -13,8 +22,18 @@ class TeleopForm extends Component {
   }
 
   nextPress() {
-    this.props.submit({comments: this.state.comments})
-    this.props.onNextPress({key: 'Home'})
+    Alert.alert(
+      'Comfirm information',
+      display(this.props.data, '\n'),
+      [
+        {onPress: () => {this.props.submit({comments: this.state.comments})
+                          this.props.onNextPress({key: 'Home'})},
+        text: 'Submit'
+      },
+      {text: 'Cancel'}
+      ]
+    )
+
   }
 
   render() {
@@ -41,14 +60,14 @@ class TeleopForm extends Component {
 
           <Text style={styles.rowText}>Touch Pad?</Text>
           <View style={styles.row}>
-            <SmallButton text='T' style={this.props.data.reachTouchPad ? {backgroundColor:'gray'}:styles.counterButton } onPress={() => this.props.submit({reachTouchPad: true})} disabled={this.props.data.reachTouchPad} />
-            <SmallButton text='F'style={!this.props.data.reachTouchPad ? {backgroundColor:'gray'} : styles.counterButton} onPress={() => this.props.submit({reachTouchPad: false})} disabled={!this.props.data.reachTouchPad}/>
+            <SmallButton text='T' style={this.props.data.reachTouchPad==='T' ? {backgroundColor:'gray'}:styles.counterButton } onPress={() => this.props.submit({reachTouchPad: 'T'})} disabled={this.props.data.reachTouchPad==='T'} />
+            <SmallButton text='F'style={this.props.data.reachTouchPad==='F' ? {backgroundColor:'gray'} : styles.counterButton} onPress={() => this.props.submit({reachTouchPad: 'F'})} disabled={this.props.data.reachTouchPad==='F'}/>
           </View>
 
           <Text style={styles.rowText}>Climb?</Text>
           <View style={styles.row}>
-            <SmallButton text='T'style={this.props.data.scoreTouchPad ? {backgroundColor:'gray'}:styles.counterButton } onPress={() => this.props.submit({scoreTouchPad: true})} disabled={this.props.data.scoreTouchPad}/>
-            <SmallButton text='F' style={!this.props.data.scoreTouchPad ? {backgroundColor:'gray'} : styles.counterButton} onPress={() => this.props.submit({scoreTouchPad: false})} disabled={!this.props.data.scoreTouchPad}/>
+            <SmallButton text='T'style={this.props.data.scoreTouchPad==='T' ? {backgroundColor:'gray'}:styles.counterButton } onPress={() => this.props.submit({scoreTouchPad: 'T'})} disabled={this.props.data.scoreTouchPad==='T'}/>
+            <SmallButton text='F' style={this.props.data.scoreTouchPad==='F' ? {backgroundColor:'gray'} : styles.counterButton} onPress={() => this.props.submit({scoreTouchPad: 'F'})} disabled={!this.props.data.scoreTouchPad==='F'}/>
           </View>
 
           <Text style={styles.rowText}>Important comments</Text>

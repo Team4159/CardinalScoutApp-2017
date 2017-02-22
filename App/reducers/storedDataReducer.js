@@ -1,4 +1,4 @@
-import { STASH, SET_UID } from '../config/actionTypes';
+import { STASH, SET_UID, EDIT_DATA } from '../config/actionTypes';
 
 function commas(d){
   var names = Object.keys(d);
@@ -9,6 +9,17 @@ function commas(d){
   }
   return str;
 }
+function editData(state, action){
+  switch(action.type){
+    case EDIT_DATA:{
+      if(action.id !== state.id){
+      return state;
+    }
+    return Object.assign({}, state, {data: action.newData})
+  }
+    default: return state;
+  }
+}
 function storedData(state={stash: [], uid: ''}, action, data){
   switch(action.type){
     case STASH:{
@@ -18,6 +29,10 @@ function storedData(state={stash: [], uid: ''}, action, data){
     }
     case SET_UID:{
       return Object.assign({}, state, {uid: action.uid})
+    }
+    case EDIT_DATA:{
+      return Object.assign({}, state,
+        {stash: state.stash.map(stashItem => editData(stashItem, action))})
     }
     default:
     return state;

@@ -9,14 +9,15 @@ class Settings extends Component{
   const times = () => {
     if(this.state.press == 5){
       Alert.alert('you clicked 5 times', 'you get a prize')
+      onPress('')
     }else{
       this.setState({press: this.state.press + 1})
     }
   }
   return(
       <View style = {styles.container}>
-        <TextInput style={styles.textBox} onChangeText={text => {this.setState({uid: text})}}/>
-        {uid=='' ? <BigButton onPress={() => onPress(this.state.uid)} text={'Hello'}/>: <Text>RIP</Text>}
+        <TextInput style={styles.textBox} placeholder='Set uid' maxLength={4} onChangeText={text => {this.setState({uid: text})}}/>
+        {uid==='' ? <BigButton onPress={() => onPress(this.state.uid)} text={'Set you UID'}/>: <Text>RIP</Text>}
         <BigButton onPress={() => times()}/>
       </View>
     )

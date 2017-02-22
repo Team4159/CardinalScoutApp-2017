@@ -27,7 +27,9 @@ class Header extends Component {
         {...this.props}
         renderTitleComponent={this._renderTitleComponent}
         onNavigateBack={scene.route.key==='Pre Match' ? null:this._back}
-        renderRightComponent={this._renderRightComponent}
+        renderRightComponent={
+          (scene.route.key==='Pre Match' || scene.route.key === 'Autonomous' || scene.route.key==='Teleop' ) ? this._renderRightComponent: undefined
+        }
       />
     );
   }
@@ -58,7 +60,9 @@ class NavRoot extends Component {
       case 'Logs':
         return <Logs/>
       case 'QR':
-        return <Logs scene='Data' info={route.data}/>
+        return <Logs scene='QR' info={route.data} uid={route.uid}/>
+      case 'Data':
+        return <Logs scene='Data' info={route.data} />
       case 'Pre Match':
         return <MatchScout scene='PreForm'/>
       case 'Autonomous':
