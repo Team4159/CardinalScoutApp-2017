@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { TextInput, View, TouchableOpacity, Text, ScrollView, Alert } from 'react-native';
+import { TextInput,
+         View,
+         TouchableOpacity,
+         Text,
+         ScrollView,
+         Alert } from 'react-native';
 import BigButton from '../../../components/BigButton';
 import SmallButton from '../../../components/SmallButton';
 import styles from './styles';
