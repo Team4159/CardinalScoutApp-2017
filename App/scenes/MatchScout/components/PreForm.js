@@ -1,5 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, TextInput, Alert, TouchableHighlight } from 'react-native';
+import { View,
+         Text,
+         TextInput,
+         Alert,
+         TouchableHighlight } from 'react-native';
+
 import BigButton from '../../../components/BigButton';
 import styles from './styles';
 
@@ -15,7 +20,8 @@ class PreForm extends Component{
   }
 
   onSubmitPress() {
-    if((isNaN(this.state.match) || isNaN(this.state.team)) || (this.state.match === '' || this.state.team === '')){
+    if( (isNaN(this.state.match) || isNaN(this.state.team))
+    || (this.state.match === '' || this.state.team === '') ) {
       Alert.alert(
         'Invalid',
         'Please enter a valid match and/or team number.'
@@ -31,9 +37,11 @@ class PreForm extends Component{
     return(
       <View style={styles.container}>
         <Text style={styles.text}>Match Number:</Text>
-        <TextInput placeholder={'Ex. 69'} style={styles.textBox} onChangeText = {(text) => this.setState({match: text}) }/>
+        <TextInput placeholder={'Ex. 69'} style={styles.textBox}
+          onChangeText = {(text) => this.setState({match: text}) }/>
         <Text style={styles.text}>Team Number:</Text>
-        <TextInput placeholder={'Ex. 4159'} style={styles.textBox} onChangeText = {(text) => this.setState({team: text}) }/>
+        <TextInput placeholder={'Ex. 4159'} style={styles.textBox}
+          onChangeText = {(text) => this.setState({team: text}) }/>
         <BigButton onPress={() => this.onSubmitPress()} text='next' />
       </View>
     )

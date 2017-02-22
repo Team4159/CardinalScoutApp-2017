@@ -40,7 +40,8 @@ export default class Data extends Component{
       display(this.state, ', '),
       [
         {
-          onPress: () => {this.props.editData(this.state, this.props.info.id);
+          onPress: () => {
+            this.props.editData(this.state, this.props.info.id);
             this.props.pop()},
           text: 'Submit'
         },

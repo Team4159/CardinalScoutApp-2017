@@ -1,14 +1,5 @@
 import { STASH, SET_UID, EDIT_DATA } from '../config/actionTypes';
 
-function commas(d){
-  var names = Object.keys(d);
-  var data = Object.values(d);
-  var str = ""
-  for(var i = 0; i < names.length; i++){
-    str += names[i] + " = " + data[i] + ", "
-  }
-  return str;
-}
 function editData(state, action){
   switch(action.type){
     case EDIT_DATA:{

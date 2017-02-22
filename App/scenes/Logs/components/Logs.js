@@ -19,7 +19,8 @@ export const Logs = ({ reset, data, push, uid }) =>(
     {data.map((d) => (
       <View style={styles.row} key={d.id}>
         <Text>Match: {d.data.match} Team: {d.data.team}</Text>
-        <SmallButton text='QR' onPress={() => push({key:'QR', data: d, uid: uid})}/>
+        <SmallButton text='QR'
+          onPress={() => push({key:'QR', data: d, uid: uid})}/>
         <SmallButton text='E' onPress={() => push({key:'Data', data: d})}/>
       </View>
     ))}

@@ -28,8 +28,10 @@ class Header extends Component {
         renderTitleComponent={this._renderTitleComponent}
         onNavigateBack={scene.route.key==='Pre Match' ? null:this._back}
         renderRightComponent={
-          (scene.route.key==='Pre Match' || scene.route.key === 'Autonomous' || scene.route.key==='Teleop' ) ? this._renderRightComponent: undefined
-        }
+            (scene.route.key==='Pre Match' || scene.route.key === 'Autonomous'
+            || scene.route.key==='Teleop' ) ?
+            this._renderRightComponent: undefined
+          }
       />
     );
   }
@@ -103,7 +105,8 @@ class NavRoot extends Component {
               onNavigateBack={pop}
               renderScene={this._renderScene}
               key={props.scene.route.key}
-              panHandlers={props.scene.route.key === 'MatchScout' ? null: undefined}
+              panHandlers={props.scene.route.key === 'MatchScout'
+              ? null: undefined}
             />
             {this._renderHeader(props)}
           </View>

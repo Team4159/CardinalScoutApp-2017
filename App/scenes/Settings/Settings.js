@@ -16,8 +16,16 @@ class Settings extends Component{
   }
   return(
       <View style = {styles.container}>
-        <TextInput style={styles.textBox} placeholder='Set uid' maxLength={4} onChangeText={text => {this.setState({uid: text})}}/>
-        {uid==='' ? <BigButton onPress={() => onPress(this.state.uid)} text={'Set you UID'}/>: <Text>RIP</Text>}
+        <TextInput style={styles.textBox}
+          placeholder='Set uid' maxLength={4}
+          onChangeText={text => {this.setState({uid: text})}}
+        />
+        
+        {uid==='' ? <BigButton
+          onPress={() => onPress(this.state.uid)}
+          text={'Set you UID'}/> :
+          <Text>You can only set your UID once</Text>}
+
         <BigButton onPress={() => times()}/>
       </View>
     )

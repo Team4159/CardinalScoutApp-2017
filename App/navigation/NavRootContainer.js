@@ -15,7 +15,6 @@ function mapDispatchToProps(dispatch) {
       dispatch(resetData())
       dispatch(reset())
     }
-
   }
 }
 export default connect(
