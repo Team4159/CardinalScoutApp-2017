@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableHighlight, ListView } from 'react-native';
 import BigButton from '../../../components/BigButton';
 import SmallButton from '../../../components/SmallButton';
 import QRCode from '../../../lib/react-native-qrcode';
@@ -14,18 +14,45 @@ const csv = (d, uid, ch) => {
   return str;
 }
 
-export const Logs = ({ reset, data, push, uid }) =>(
-  <View style={styles.container}>
-    {data.map((d) => (
-      <View style={styles.row} key={d.id}>
-        <Text>Match: {d.data.match} Team: {d.data.team}</Text>
-        <SmallButton text='QR'
-          onPress={() => push({key:'QR', data: d, uid: uid})}/>
-        <SmallButton text='E' onPress={() => push({key:'Data', data: d})}/>
-      </View>
-    ))}
-  </View>
-)
+export class Logs extends Component {
+  constructor(props){
+    super(props);
+    let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.state =  {
+      dataSource: ds.cloneWithRows(this.props.data)
+    }
+  }
+  componentWillReceiveProps(newProps) {
+    if(newProps.data){
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(newProps.data)
+      })
+    }
+  }
+  _renderRow(d){
+    return(
+          <TouchableHighlight style={styles.row}
+            onPress={() => this.props.push({
+              key: 'Data', 
+              data: d
+              })}
+              >
+            <Text style={styles.text}> Team: {d.data.team} Match: {d.data.match}</Text>
+          </TouchableHighlight>
+    )
+  }
+  render(){
+    return(
+
+        <ListView
+          dataSource= {this.state.dataSource}
+          renderRow = {(d) => this._renderRow(d)}
+          renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
+          style = {{paddingTop: 75}}
+        />
+    );
+  }
+}
 
 
 export const QR = ( {info, uid} ) => (

@@ -3,7 +3,7 @@ import { TextInput,
          View,
          TouchableOpacity,
          Text,
-         ScrollView,
+         ListView,
          Alert } from 'react-native';
 import BigButton from '../../../components/BigButton';
 import SmallButton from '../../../components/SmallButton';
@@ -19,20 +19,25 @@ const display = (d, ch) => {
 }
 // this.setState({key : text})
 export default class Data extends Component{
-  state = {
-    match: this.props.info.data.match,
-    team: this.props.info.data.team,
-    autonGears: this.props.info.data.autonGears,
-    autonBallsLow: this.props.info.data.autonBallsLow,
-    autonBallsHigh : this.props.info.data.autonBallsHigh,
-    cross: this.props.info.data.cross,
-    teleopGears: this.props.info.data.teleopGears,
-    teleopBallsHigh: this.props.info.data.teleopBallsHigh,
-    teleopBallsLow: this.props.info.data.teleopBallsLow,
-    reachTouchPad: this.props.info.data.reachTouchPad,
-    scoreTouchPad: this.props.info.data.scoreTouchPad,
-    robotDeadTime: this.props.info.data.robotDeadTime,
-    comments: this.props.info.data.comments,
+  constructor(props){
+    super(props);
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.state = {
+      match: this.props.info.data.match,
+      team: this.props.info.data.team,
+      autonGears: this.props.info.data.autonGears,
+      autonBallsLow: this.props.info.data.autonBallsLow,
+      autonBallsHigh : this.props.info.data.autonBallsHigh,
+      cross: this.props.info.data.cross,
+      teleopGears: this.props.info.data.teleopGears,
+      teleopBallsHigh: this.props.info.data.teleopBallsHigh,
+      teleopBallsLow: this.props.info.data.teleopBallsLow,
+      reachTouchPad: this.props.info.data.reachTouchPad,
+      scoreTouchPad: this.props.info.data.scoreTouchPad,
+      robotDeadTime: this.props.info.data.robotDeadTime,
+      comments: this.props.info.data.comments,
+      dataSource: ds.cloneWithRows(Object.keys(this.props.info.data))
+    }
   }
   changeText(text, key){
     var newState = {};
@@ -56,27 +61,31 @@ export default class Data extends Component{
       ]
     )
   }
-    render() {
-    const { info, editData } = this.props;
+  renderRow(key) {
     return(
-      <ScrollView >
-        <View style={{paddingTop: 75, flex:1}}>
-          {Object.keys(this.state).map(
-            (key) => (
-              <View key={key} style={styles.row}>
-                <Text style={{alignSelf:'flex-start'}}>{key}:</Text>
+      <View>
+        <Text style={{fontSize: 10}}>{key}:</Text>
+
                 <TextInput
                   style={styles.textBox}
                   onChangeText={(text) => this.changeText(text, key)}
                   defaultValue={this.state[key] === 0 ?
                      '0' : (this.state[key] || "").toString()}
+                  renderSeparator={(sectionId, rowId) =>
+                    <View key={rowId} style={styles.separator} />}
+
                 />
-              </View>
-              )
-          )}
-          <BigButton onPress={() => this.submitChanges()} />
-        </View>
-      </ScrollView>
+      </View>
+    )
+  }
+    render() {
+    const { info, editData } = this.props;
+    return(
+      <ListView
+        dataSource={this.state.dataSource}
+        renderRow={(d) => this.renderRow(d)}
+        style={{paddingTop: 65}}
+      />
     )
   }
 }
