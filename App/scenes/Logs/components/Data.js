@@ -63,17 +63,13 @@ export default class Data extends Component{
   }
   renderRow(key) {
     return(
-      <View>
+      <View style={styles.row}>
         <Text style={{fontSize: 10}}>{key}:</Text>
-
                 <TextInput
                   style={styles.textBox}
                   onChangeText={(text) => this.changeText(text, key)}
                   defaultValue={this.state[key] === 0 ?
                      '0' : (this.state[key] || "").toString()}
-                  renderSeparator={(sectionId, rowId) =>
-                    <View key={rowId} style={styles.separator} />}
-
                 />
       </View>
     )
@@ -85,6 +81,8 @@ export default class Data extends Component{
         dataSource={this.state.dataSource}
         renderRow={(d) => this.renderRow(d)}
         style={{paddingTop: 65}}
+        renderSeparator={(sectionId, rowId) =>
+          <View key={rowId} style={styles.separator} />}
       />
     )
   }
