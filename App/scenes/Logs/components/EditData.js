@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { TextInput,
          View,
          TouchableOpacity,
@@ -8,26 +9,33 @@ import { TextInput,
 import BigButton from '../../../components/BigButton';
 import SmallButton from '../../../components/SmallButton';
 import styles from './styles';
-import { dataKeys, display } from '../../../config/globalFunctions';
-export default class Data extends Component{
+import { dataKeys, display, dataToRender } from '../../../config/globalFunctions';
+
+const newD = (data) =>{
+  var newData = Object.assign({}, data);
+  delete newData['dataSource'];
+  return newData;
+}
+class EditData extends Component{
   constructor(props){
     super(props);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    const data = dataToRender(this.props.data ,this.props.info);
     this.state = {
-      match: this.props.info.data.match,
-      team: this.props.info.data.team,
-      autonGears: this.props.info.data.autonGears,
-      autonBallsLow: this.props.info.data.autonBallsLow,
-      autonBallsHigh : this.props.info.data.autonBallsHigh,
-      cross: this.props.info.data.cross,
-      teleopGears: this.props.info.data.teleopGears,
-      teleopBallsHigh: this.props.info.data.teleopBallsHigh,
-      teleopBallsLow: this.props.info.data.teleopBallsLow,
-      reachTouchPad: this.props.info.data.reachTouchPad,
-      scoreTouchPad: this.props.info.data.scoreTouchPad,
-      robotDeadTime: this.props.info.data.robotDeadTime,
-      comments: this.props.info.data.comments,
-      dataSource: ds.cloneWithRows(dataKeys(Object.keys(this.props.info.data)))
+      match: data.match,
+      team: data.team,
+      autonGears: data.autonGears,
+      autonBallsLow: data.autonBallsLow,
+      autonBallsHigh : data.autonBallsHigh,
+      cross: data.cross,
+      teleopGears: data.teleopGears,
+      teleopBallsHigh: data.teleopBallsHigh,
+      teleopBallsLow: data.teleopBallsLow,
+      reachTouchPad: data.reachTouchPad,
+      scoreTouchPad: data.scoreTouchPad,
+      robotDeadTime: data.robotDeadTime,
+      comments: data.comments,
+      dataSource: ds.cloneWithRows(dataKeys(Object.keys(data)))
     }
   }
   changeText(text, key){
@@ -42,7 +50,7 @@ export default class Data extends Component{
       [
         {
           onPress: () => {
-            this.props.editData(this.state, this.props.info.id);
+            this.props.editData(newD(this.state), this.props.info);
             this.props.pop();
             },
           text: 'Submit'
@@ -84,3 +92,11 @@ export default class Data extends Component{
     )
   }
 }
+function mapStateToProps (state) {
+  return {
+    data: state.data.storedData.stash,
+  }
+}
+export default connect(
+  mapStateToProps
+)(EditData)
