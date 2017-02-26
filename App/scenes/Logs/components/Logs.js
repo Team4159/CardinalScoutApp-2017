@@ -33,8 +33,8 @@ export class Logs extends Component {
     return(
           <TouchableHighlight style={styles.row}
             onPress={() => this.props.push({
-              key: 'Data', 
-              data: d
+              key: 'Data',
+              data: d.id
               })}
               >
             <Text style={styles.text}> Team: {d.data.team} Match: {d.data.match}</Text>
@@ -49,6 +49,7 @@ export class Logs extends Component {
           renderRow = {(d) => this._renderRow(d)}
           renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
           style = {{paddingTop: 75}}
+          enableEmptySections={true}
         />
     );
   }

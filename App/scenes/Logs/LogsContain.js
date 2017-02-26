@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 import Logs from './containers/LogsContainer';
-import Data from './containers/DataContainer'
+import EditData from './containers/EditDataContainer'
+import Data from './components/Data';
 import { QR } from './components/Logs';
 export default class LogsContain extends Component{
   constructor(props){
     super(props);
     this._renderScene = this._renderScene.bind(this);
   }
-  _renderScene = (scene, d, uid) => {
-    if(scene === 'QR'){
-      return <QR info={d}/>
-    }else if(scene=== 'Data' ){
-      return <Data info={d} />
+  _renderScene = (scene, d) => {
+    switch (scene) {
+      case 'QR':
+        return <QR info={d}/>
+      case 'EditData':
+         return <EditData info={d} />
+      case 'Data':
+         return <Data info={d} />
+      default:
+          return <Logs />
     }
-    return <Logs />
   }
   render(){
   const { info, scene, uid } = this.props;

@@ -4,10 +4,11 @@ export default StyleSheet.create({
   container:{
     paddingTop: 50
   },
-  column: {
-    flexDirection: 'column',
+  contain: {
+    flex: 1,
+    padding: 8,
     alignItems: 'center',
-
+    justifyContent: 'center',
   },
   row:{
     flex: 1,
@@ -26,7 +27,7 @@ export default StyleSheet.create({
     borderColor: 'gray',
     paddingLeft: 15,
     fontSize: 20,
-    alignSelf: 'flex-end',
+    alignSelf: 'center',
   },
   separator: {
     flex: 1,

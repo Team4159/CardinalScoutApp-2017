@@ -13,45 +13,10 @@ import {
 
 const {
   Card: NavigationCard,
-  Header: NavigationHeader,
   StateUtils: NavigationStateUtils,
   Transitioner: NavigationTransitioner,
 } = NavigationExperimental
-
-
-class Header extends Component {
-  render() {
-    const  { scene } = this.props;
-    return (
-      <NavigationHeader
-        {...this.props}
-        renderTitleComponent={this._renderTitleComponent}
-        onNavigateBack={scene.route.key==='Pre Match' ? null:this._back}
-        renderRightComponent={
-            (scene.route.key==='Pre Match' || scene.route.key === 'Autonomous'
-            || scene.route.key==='Teleop' ) ?
-            this._renderRightComponent: undefined
-          }
-      />
-    );
-  }
-  _renderRightComponent = (props) => (
-    <TouchableOpacity onPress={() => this.props.cancelPressed()}>
-      <Text style={{marginTop: 13, marginRight: 13}}>Cancel</Text>
-    </TouchableOpacity>
-  )
-  _back = () => {
-    this.props.pop()
-  }
-
-  _renderTitleComponent= (props) => {
-    return (
-      <NavigationHeader.Title>
-        {props.scene.route.key}
-      </NavigationHeader.Title>
-    );
-  }
-}
+import Header from './Header';
 
 class NavRoot extends Component {
   _renderScene = (props) => {
@@ -65,6 +30,8 @@ class NavRoot extends Component {
         return <Logs scene='QR' info={route.data} uid={route.uid}/>
       case 'Data':
         return <Logs scene='Data' info={route.data} />
+      case 'Edit Data':
+        return <Logs scene='EditData' info={route.data}/>
       case 'Pre Match':
         return <MatchScout scene='PreForm'/>
       case 'Autonomous':
@@ -81,6 +48,7 @@ class NavRoot extends Component {
   componentWillUnmount () {
     BackAndroid.removeEventListener('hardwareBackPress', () =>this.props.pop())
   }
+
   _renderHeader = (sceneProps) => {
     const route = sceneProps.scene.route;
     if(route.key == 'Home') return null;
@@ -88,6 +56,7 @@ class NavRoot extends Component {
       <Header
         pop={this.props.pop}
         cancelPressed = {this.props.cancelPressed}
+        editPressed={this.props.editPressed}
         {...sceneProps}
       />
     );
