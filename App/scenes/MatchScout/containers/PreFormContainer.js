@@ -3,13 +3,15 @@ import PreForm from '../components/PreForm'
 import { push, pop } from '../../../actions/navActions'
 import { submit } from '../../../actions/dataActions'
 function mapStateToProps (state) {
-  return {data: state.data.storedData}
+  return {
+    match: state.data.temporaryData.match,
+    team: state.data.temporaryData.team
+  }
 }
 function mapDispatchToProps (dispatch) {
   return {
-    push: (route) => dispatch(push(route)),
-    pop: () => dispatch(pop()),
-    submit: (data) => dispatch(submit(data)),
+    onNextPress: () => dispatch(push({key: 'Auton Form'})),
+    onChangeText: (text, w) => dispatch(submit({ [ w ]: text })),
   }
 }
 export default connect(
