@@ -2,13 +2,13 @@ import { connect } from 'react-redux'
 import PreForm from '../components/PreForm'
 import { push, pop } from '../../../actions/navActions'
 import { submit } from '../../../actions/dataActions'
-function mapStateToProps (state) {
+const mapStateToProps = (state) => {
   return {
     match: state.data.temporaryData.match,
     team: state.data.temporaryData.team
   }
 }
-function mapDispatchToProps (dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     onNextPress: () => dispatch(push({key: 'Autonomous'})),
     onChangeText: (text, w) => dispatch(submit({ [ w ]: text })),
