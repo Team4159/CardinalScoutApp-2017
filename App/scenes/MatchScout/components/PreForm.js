@@ -16,7 +16,16 @@ const PreForm = ({ onNextPress, push, onChangeText, match, team }) =>(
         <Text style={styles.text}>Team Number:</Text>
         <TextInput placeholder={'Ex. 4159'} value={team} style={styles.textBox}
           onChangeText = {(text) => onChangeText(text, 'team')}/>
-        <BigButton onPress={() => onNextPress()} text='next' />
+        <BigButton onPress={() => {
+          if(validInput(team, match))
+          onNextPress();
+          else {
+            Alert.alert(
+          'Invalid',
+          'Please enter a valid match and/or team number.'
+          );
+          }
+        }} text='next' />
       </View>
 )
 

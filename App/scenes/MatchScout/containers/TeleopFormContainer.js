@@ -50,6 +50,9 @@ function mapDispatchToProps (dispatch) {
       dispatch(stash())
       dispatch(reset(route))
       dispatch(resetData())
+    },
+    onChangeText: (text) => {
+      dispatch(submit({comments: text}))
     }
   }
 }

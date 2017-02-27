@@ -8,8 +8,7 @@ import SmallButton from '../../../components/SmallButton';
 import BigButton from '../../../components/BigButton';
 import styles from './styles';
 
-const AutonForm = ({ onPlusPress, onMinusPress, push, submit, data }) =>{
-  return(
+const AutonForm = ({ onPlusPress, onMinusPress, push, submit, data }) =>(
     <View style={styles.container}>
 
       <Text style={styles.rowText}>Gears: {data.autonGears}</Text>
@@ -44,6 +43,6 @@ const AutonForm = ({ onPlusPress, onMinusPress, push, submit, data }) =>{
 
       <BigButton text='Next' onPress={() => push({key: 'Teleop'})}/>
     </View>
-  )
-}
+)
+
 export default AutonForm;

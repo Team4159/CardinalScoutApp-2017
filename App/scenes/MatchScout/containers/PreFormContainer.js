@@ -10,7 +10,7 @@ function mapStateToProps (state) {
 }
 function mapDispatchToProps (dispatch) {
   return {
-    onNextPress: () => dispatch(push({key: 'Auton Form'})),
+    onNextPress: () => dispatch(push({key: 'Autonomous'})),
     onChangeText: (text, w) => dispatch(submit({ [ w ]: text })),
   }
 }
