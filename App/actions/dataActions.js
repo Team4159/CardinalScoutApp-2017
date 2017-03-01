@@ -1,37 +1,43 @@
-import { SUBMIT_FORM, RESET_DATA, CLEAR_STORED_DATA, STASH, SET_UID, EDIT_DATA } from '../config/actionTypes';
+import * as a from '../config/actionTypes';
 import v4 from 'uuid/v4';
-export function submit(data) {
+export const submit = (data) => {
   return {
-    type: SUBMIT_FORM,
+    type: a.SUBMIT_FORM,
     data
     }
 }
-export function resetData(){
+export const resetData= () => {
   return{
-    type: RESET_DATA,
+    type: a.RESET_DATA,
   }
 }
-export function resetStoredData(){
+export const resetStoredData= () => {
   return{
-    type: CLEAR_STORED_DATA
+    type: a.CLEAR_STORED_DATA
   }
 }
-export function stash() {
+export const stash= () => {
   return {
-    type: STASH,
+    type: a.STASH,
     id: v4()
   }
 }
-export function setUID(uid){
+export const setUID = (uid) => {
   return {
-    type: SET_UID,
+    type: a.SET_UID,
     uid
   }
 }
-export function editData(newData, id){
+export const editData = (newData, id) => {
   return{
-    type: EDIT_DATA,
+    type: a.EDIT_DATA,
     newData,
     id
+  }
+}
+
+export const saveEditData = () => {
+  return{
+    type: a.SAVE_EDIT_DATA,
   }
 }

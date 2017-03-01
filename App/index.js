@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import { persistStore } from 'redux-persist';
 import NavRootContainer from './navigation/NavRootContainer';
 
-jest.unmock('ScrollView');
 
 const store = configureStore();
 persistStore(store, {storage: AsyncStorage});

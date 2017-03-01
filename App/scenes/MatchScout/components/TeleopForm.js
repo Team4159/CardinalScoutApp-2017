@@ -8,7 +8,20 @@ import { View,
 import SmallButton from '../../../components/SmallButton';
 import BigButton from '../../../components/BigButton';
 import styles from './styles';
-
+/*
+Alert.alert(
+  'Comfirm information',
+  display(data, '\n'),
+  [
+    {onPress: () =>
+      {this.props.submit({comments: this.state.comments})
+              this.props.onNextPress({key: 'Home'})},
+    text: 'Submit'
+  },
+  {text: 'Cancel'}
+  ]
+)
+*/
 const display = (d, ch) => {
   var names = Object.keys(d);
   var data = Object.values(d);
@@ -18,114 +31,104 @@ const display = (d, ch) => {
   }
   return str;
 }
-class TeleopForm extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {comments: ''}
-    this.nextPress = this.nextPress.bind(this)
-  }
-
-  nextPress() {
-    Alert.alert(
-      'Comfirm information',
-      display(this.props.data, '\n'),
-      [
-        {onPress: () =>
-          {this.props.submit({comments: this.state.comments})
-                  this.props.onNextPress({key: 'Home'})},
-        text: 'Submit'
-      },
-      {text: 'Cancel'}
-      ]
-    )
-
-  }
-
-  render() {
-    return(
+const TeleopForm = ({ onPlusPress, onMinusPress, data, submit, onChangeText, onNextPress }) => (
       <ScrollView>
         <View style={styles.container}>
 
           <Text style={styles.rowText}>
-            Gears: {this.props.data.teleopGears}
+            Gears: {data.teleopGears}
           </Text>
           <View style={styles.row}>
             <SmallButton onPress={() =>
-              this.props.onPlusPress('gear', this.props.data)}
+              onPlusPress('gear', data)}
               text='+'
             />
             <SmallButton text='-' onPress={() =>
-              this.props.onMinusPress('gear', this.props.data)}
+              onMinusPress('gear', data)}
             />
           </View>
 
           <Text style={styles.rowText}>
-            High Goals: {this.props.data.teleopBallsHigh}
+            High Goals: {data.teleopBallsHigh}
           </Text>
           <View style={styles.row}>
             <SmallButton onPress={() =>
-              this.props.onPlusPress('ball high', this.props.data)} text='+'
+              onPlusPress('ball high', data)} text='+'
             />
             <SmallButton onPress={() =>
-              this.props.onMinusPress('ball high', this.props.data)}
+              onMinusPress('ball high', data)}
               text='-'
             />
           </View>
           <Text style={styles.rowText}>
-            Low Goals: {this.props.data.teleopBallsLow}
+            Low Goals: {data.teleopBallsLow}
           </Text>
           <View style={styles.row}>
             <SmallButton onPress={() =>
-              this.props.onPlusPress('ball low', this.props.data)}
+              onPlusPress('ball low', data)}
               text='+'
             />
             <SmallButton onPress={() =>
-              this.props.onMinusPress('ball low', this.props.data)}
+              onMinusPress('ball low', data)}
               text='-'
             />
+          </View>
+          <Text style={styles.rowText}> Robot Dead Time: {data.robotDeadTime}s</Text>
+          <View style={styles.row}>
+            <SmallButton text='+' onPress={() =>
+              onPlusPress('robot dead time', data)}/>
+            <SmallButton text='-' onPress={() =>
+              onMinusPress('robot dead time', data)} />
           </View>
 
           <Text style={styles.rowText}>Touch Pad?</Text>
           <View style={styles.row}>
-            <SmallButton text='T' style={this.props.data.reachTouchPad==='T' ?
+            <SmallButton text='T' style={data.reachTouchPad==='T' ?
                {backgroundColor:'gray'} : undefined }
-               onPress={() => this.props.submit({reachTouchPad: 'T'})}
-               disabled={this.props.data.reachTouchPad==='T'}
+               onPress={() => submit({reachTouchPad: 'T'})}
+               disabled={data.reachTouchPad==='T'}
              />
-            <SmallButton text='F'style={this.props.data.reachTouchPad==='F' ?
+            <SmallButton text='F'style={data.reachTouchPad==='F' ?
               {backgroundColor:'gray'} : undefined }
-              onPress={() => this.props.submit({reachTouchPad: 'F'})}
-              disabled={this.props.data.reachTouchPad==='F'}
+              onPress={() => submit({reachTouchPad: 'F'})}
+              disabled={data.reachTouchPad==='F'}
             />
           </View>
 
           <Text style={styles.rowText}>Climb?</Text>
           <View style={styles.row}>
-            <SmallButton text='T'style={this.props.data.scoreTouchPad==='T' ?
+            <SmallButton text='T'style={data.scoreTouchPad==='T' ?
               {backgroundColor:'gray'} : styles.counterButton }
-              onPress={() => this.props.submit({scoreTouchPad: 'T'})}
-              disabled={this.props.data.scoreTouchPad==='T'}
+              onPress={() => submit({scoreTouchPad: 'T'})}
+              disabled={data.scoreTouchPad==='T'}
             />
-            <SmallButton text='F' style={this.props.data.scoreTouchPad==='F' ?
+            <SmallButton text='F' style={data.scoreTouchPad==='F' ?
               {backgroundColor:'gray'} : styles.counterButton}
-              onPress={() => this.props.submit({scoreTouchPad: 'F'})}
-              disabled={!this.props.data.scoreTouchPad==='F'}
+              onPress={() => submit({scoreTouchPad: 'F'})}
+              disabled={!data.scoreTouchPad==='F'}
             />
           </View>
 
           <Text style={styles.rowText}>Important comments</Text>
           <TextInput placeholder={'Ex. Died on field'}
-            onChangeText={(text) => this.setState({comments: text})}
-            style={styles.textBox}
+            onChangeText={(text) => onChangeText(text)}
+            style={styles.textBox} value={data.comments}
           />
 
-          <BigButton onPress={() => this.nextPress()} text='Done' />
+          <BigButton onPress={() => Alert.alert(
+            'Comfirm information',
+            display(data, '\n'),
+            [
+            { onPress: () =>
+                { onNextPress()},
+              text: 'Submit'
+            },
+            {text: 'Cancel'}
+            ]
+          )} text='Done' />
 
         </View>
       </ScrollView>
-    )
-  }
-}
-
+)
 export default TeleopForm;

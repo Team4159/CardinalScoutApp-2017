@@ -7,11 +7,7 @@ export const display = (d, ch) => {
   }
   return str;
 }
-export const dataKeys = (d) =>{
-  var index = d.indexOf('dataSource');
-  var newData = d.slice(0, index);
-  return newData;
-}
+
 export const dataToRender = (d, id) =>{
 
   var renderData = d.find((value) =>{

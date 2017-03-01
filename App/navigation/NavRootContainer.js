@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import NavRoot from './NavRoot'
-import { resetData } from '../actions/dataActions'
+import { resetData, editData } from '../actions/dataActions'
 import { push, pop, reset } from '../actions/navActions'
 function mapStateToProps (state) {
   return {
@@ -16,6 +16,7 @@ function mapDispatchToProps(dispatch) {
       dispatch(reset())
     },
     editPressed: (data) => {
+      dispatch(editData(undefined, data))
       dispatch(push({key: 'Edit Data', data}))
     }
   }

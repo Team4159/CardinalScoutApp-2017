@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   container:{
-    paddingTop: 50
+    paddingTop: 65
   },
   contain: {
     flex: 1,
@@ -14,7 +14,9 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    height: 50
+    height: 50,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderColor: 'gray'
   },
   text:{
     marginLeft: 12,
