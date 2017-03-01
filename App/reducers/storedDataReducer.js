@@ -1,12 +1,12 @@
-import { STASH, SET_UID, EDIT_DATA } from '../config/actionTypes';
+import { STASH, SET_UID, EDIT_DATA, SAVE_EDIT_DATA, CLEAR_STORED_DATA } from '../config/actionTypes';
 
-function editData(state, action){
+function editData(state, action, data){
   switch(action.type){
-    case EDIT_DATA:{
-      if(action.id !== state.id){
+    case SAVE_EDIT_DATA:{
+      if(data.id !== state.id){
       return state;
     }
-    return Object.assign({}, state, {data: action.newData})
+    return Object.assign({}, state, {data: data.data})
   }
     default: return state;
   }
@@ -14,17 +14,21 @@ function editData(state, action){
 function storedData(state={stash: [], uid: ''}, action, data){
   switch(action.type){
     case STASH:{
-      var obj = {id: action.id, data: data}
+      var obj = {id: action.id, data: data.matchScoutData}
       var ds = [...state.stash, obj]
       return Object.assign({}, state, {stash: ds})
     }
     case SET_UID:{
       return Object.assign({}, state, {uid: action.uid})
     }
-    case EDIT_DATA:{
+    case SAVE_EDIT_DATA:{
       return Object.assign({}, state,
-        {stash: state.stash.map(stashItem => editData(stashItem, action))})
+        {stash: state.stash.map(stashItem => editData(stashItem, action, data.editData))})
     }
+    case CLEAR_STORED_DATA:
+    return Object.assign({}, state, {
+      storedData: {stash: [], uid: ''}
+    })
     default:
     return state;
     }

@@ -4,8 +4,8 @@ import { push, pop } from '../../../actions/navActions'
 import { submit } from '../../../actions/dataActions'
 const mapStateToProps = (state) => {
   return {
-    match: state.data.temporaryData.match,
-    team: state.data.temporaryData.team
+    match: state.data.temporaryData.matchScoutData.match,
+    team: state.data.temporaryData.matchScoutData.team
   }
 }
 const mapDispatchToProps = (dispatch) => {

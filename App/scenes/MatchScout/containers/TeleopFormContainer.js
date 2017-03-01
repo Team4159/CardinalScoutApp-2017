@@ -4,7 +4,7 @@ import { push, pop, reset } from '../../../actions/navActions'
 import { submit, resetData, stash } from '../../../actions/dataActions'
 
 const mapStateToProps = (state) => {
-  return { data: state.data.temporaryData }
+  return { data: state.data.temporaryData.matchScoutData }
 }
 
 const mapDispatchToProps = (dispatch) => {

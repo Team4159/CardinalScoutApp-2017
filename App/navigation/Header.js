@@ -25,17 +25,12 @@ export default class Header extends Component {
   _renderRightComponent(props){
     let route = props.scene.route;
     if(route.key==='Pre Match' || route.key === 'Autonomous'
-    || route.key==='Teleop' ){
+    || route.key==='Teleop' || route.key === 'Edit Data' ){
     return(
     <TouchableOpacity onPress={() => this.props.cancelPressed()}>
       <Text style={{marginTop: 13, marginRight: 13}}>Cancel</Text>
     </TouchableOpacity>
     )
-    }
-    if(route.key === 'Edit Data'){
-      return (<TouchableOpacity onPress={() => this.props.pop()}>
-        <Text style={{marginTop: 13, marginRight: 13}}>Cancel</Text>
-      </TouchableOpacity>)
     }
     if(route.key === 'Data'){
       return(
