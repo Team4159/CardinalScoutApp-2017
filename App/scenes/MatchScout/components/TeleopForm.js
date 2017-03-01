@@ -74,6 +74,13 @@ const TeleopForm = ({ onPlusPress, onMinusPress, data, submit, onChangeText, onN
               text='-'
             />
           </View>
+          <Text style={styles.rowText}> Robot Dead Time: {data.robotDeadTime}s</Text>
+          <View style={styles.row}>
+            <SmallButton text='+' onPress={() =>
+              onPlusPress('robot dead time', data)}/>
+            <SmallButton text='-' onPress={() =>
+              onMinusPress('robot dead time', data)} />
+          </View>
 
           <Text style={styles.rowText}>Touch Pad?</Text>
           <View style={styles.row}>
