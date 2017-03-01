@@ -14,8 +14,10 @@ function mapDispatchToProps(dispatch) {
     cancelPressed: () => {
       dispatch(resetData())
       dispatch(reset())
+    },
+    editPressed: (data) => {
+      dispatch(push({key: 'Edit Data', data}))
     }
-
   }
 }
 export default connect(

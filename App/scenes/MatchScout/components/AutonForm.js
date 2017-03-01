@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableHighlight, Switch} from 'react-native';
+import { View,
+         Text,
+         TextInput,
+         TouchableHighlight,
+         Switch} from 'react-native';
 import SmallButton from '../../../components/SmallButton';
 import BigButton from '../../../components/BigButton';
 import styles from './styles';
@@ -28,8 +32,14 @@ const AutonForm = ({ onPlusPress, onMinusPress, push, submit, data }) =>{
 
       <Text style={styles.rowText}>Cross</Text>
       <View style={styles.row}>
-        <SmallButton text='T'style={data.cross ? styles.disabledButton:styles.counterButton } onPress={() => submit({cross: true})} disabled={data.cross}/>
-        <SmallButton text='F' style={!data.cross ? styles.disabledButton: styles.counterButton} onPress={() => submit({cross: false})} disabled={!data.cross}/>
+        <SmallButton text='T'style={data.cross==='T' ?
+          {backgroundColor: 'gray'} : undefined }
+          onPress={() => submit({cross: 'T'})} disabled={data.cross==='T'}
+        />
+        <SmallButton text='F' style={data.cross==='F' ?
+          {backgroundColor: 'gray'} : undefined}
+          onPress={() => submit({cross: 'F'})} disabled={data.cross==='F'}
+        />
       </View>
 
       <BigButton text='Next' onPress={() => push({key: 'Teleop'})}/>

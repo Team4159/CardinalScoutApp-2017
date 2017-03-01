@@ -3,7 +3,7 @@ import PreForm from '../components/PreForm'
 import { push, pop } from '../../../actions/navActions'
 import { submit } from '../../../actions/dataActions'
 function mapStateToProps (state) {
-  return {}
+  return {data: state.data.storedData}
 }
 function mapDispatchToProps (dispatch) {
   return {

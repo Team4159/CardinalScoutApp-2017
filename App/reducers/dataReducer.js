@@ -1,4 +1,4 @@
-import { SUBMIT_FORM, RESET_DATA, CLEAR_STORED_DATA, STASH, SET_UID } from '../config/actionTypes';
+import { SUBMIT_FORM, RESET_DATA, CLEAR_STORED_DATA, STASH, SET_UID, EDIT_DATA } from '../config/actionTypes';
 import storedData from './storedDataReducer';
 const initialData = {
    temporaryData :{match: '',
@@ -6,13 +6,14 @@ const initialData = {
                    autonGears: 0,
                    autonBallsLow: 0,
                    autonBallsHigh : 0,
-                   cross: false,
+                   cross: 'F',
                    teleopGears: 0,
                    teleopBallsHigh: 0,
                    teleopBallsLow: 0,
-                   reachTouchPad: false,
-                   scoreTouchPad: false,
-                   comments: ''
+                   reachTouchPad: 'F',
+                   scoreTouchPad: 'F',
+                   robotDeadTime: 0,
+                   comments: '',
                  },
    storedData: {stash: [], uid: ''}
 }
@@ -22,6 +23,7 @@ function dataReducer(state=initialData, action){
       var data = Object.assign({}, state.temporaryData, action.data)
       return Object.assign({}, state, {temporaryData: data})
     }
+    case EDIT_DATA:
     case SET_UID:
     case STASH:{
       return Object.assign({}, state, {storedData: storedData(state.storedData, action, state.temporaryData)})
@@ -33,11 +35,14 @@ function dataReducer(state=initialData, action){
                         autonGears: 0,
                         autonBallsLow: 0,
                         autonBallsHigh : 0,
-                        cross: false,
+                        cross: 'F',
                         teleopGears: 0,
                         teleopBallsHigh: 0,
                         teleopBallsLow: 0,
-                        comments: ''
+                        reachTouchPad: 'F',
+                        scoreTouchPad: 'F',
+                        robotDeadTime: 0,
+                        comments: '',
                       },
       });
     case CLEAR_STORED_DATA:
