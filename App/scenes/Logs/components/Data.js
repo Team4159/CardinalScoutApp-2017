@@ -10,29 +10,31 @@ import BigButton from '../../../components/BigButton';
 import SmallButton from '../../../components/SmallButton';
 import styles from './styles';
 import { push } from '../../../actions/navActions'
+import QRCode from '../../../lib/react-native-qrcode';
 import { display, dataToRender } from '../../../config/globalFunctions';
+import { csv } from '../../../config/globalFunctions';
 
-//<BigButton text='Next' onPress={() =>
-  //onPress(dataToRender(data, info))} />
 const Data = ({ info, data, onPress, uid }) => (
-  <View style={{paddingTop: 70}}>
+  <View style={{paddingTop: 70, paddingLeft:10,flex: 1,flexDirection: 'column',justifyContent: 'space-between'}}>
+    <Text>{csv(info,uid,',')}</Text>
+    <QRCode size={250} value={csv(info,uid,',')} />
     <Text>{display(dataToRender(data ,info), "\n")}</Text>
-    <BigButton text='Next' onPress={() =>
-      onPress(dataToRender(data, info), uid)} />
   </View>
 )
-function mapStateToProps (state) {
+
+const mapStateToProps = (state) => {
   return {
     data: state.data.storedData.stash,
     uid: state.data.storedData.uid
   }
 }
-function mapDispatchToProps(dispatch){
+
+const mapDispatchToProps = (dispatch) => {
   return {onPress: (data, uid) => {
-    dispatch(push({key:'QR', data, uid}))
+    dispatch(push({key:'QR', data, uid}))}
   }
 }
-}
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

@@ -25,7 +25,7 @@ const PreForm = ({ onNextPress, push, onChangeText, match, team }) =>(
           'Please enter a valid match and/or team number.'
           );
           }
-        }} text='next' />
+        }} text='Next' />
       </View>
 )
 

@@ -7,14 +7,16 @@ const Settings = ({ onPress, uid }) =>{
   return(
       <View style = {styles.container}>
         <TextInput style={styles.textBox}
-          placeholder='Set uid' maxLength={4}
+          placeholder='Ex. John Smith => josm' maxLength={4}
           onChangeText={text => {tempUID = text}}
         />
 
-        {uid==='' ? <BigButton
+        { uid==='' ? <BigButton
           onPress={() => {onPress(tempUID); tempUID=''}}
-          text={'Set you UID'}/> :
-          <Text>You can only set your UID once</Text>}
+          text={'Save'}/>
+          :
+          <Text>You can only set your UID once</Text>
+        }
 
       </View>
     )
