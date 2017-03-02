@@ -8,20 +8,7 @@ import { View,
 import SmallButton from '../../../components/SmallButton';
 import BigButton from '../../../components/BigButton';
 import styles from './styles';
-/*
-Alert.alert(
-  'Comfirm information',
-  display(data, '\n'),
-  [
-    {onPress: () =>
-      {this.props.submit({comments: this.state.comments})
-              this.props.onNextPress({key: 'Home'})},
-    text: 'Submit'
-  },
-  {text: 'Cancel'}
-  ]
-)
-*/
+
 const display = (d, ch) => {
   var names = Object.keys(d);
   var data = Object.values(d);
@@ -117,14 +104,14 @@ const TeleopForm = ({ onPlusPress, onMinusPress, data, submit, onChangeText, onN
           />
 
           <BigButton onPress={() => Alert.alert(
-            'Comfirm information',
+            'Comfirmation',
             display(data, '\n'),
             [
+            {text: 'Cancel'},
             { onPress: () =>
                 { onNextPress()},
               text: 'Submit'
             },
-            {text: 'Cancel'}
             ]
           )} text='Done' />
 
