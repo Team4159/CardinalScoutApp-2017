@@ -27,7 +27,9 @@ const EditData = ({ data, info, editData, newData, onSubmitPress }) =>{
         </View>
       )
       }
-      <BigButton text='submit' onPress={() => onSubmitPress()}/>
+      <View style={{alignItems:'center'}}>
+        <BigButton text='Save' onPress={() => onSubmitPress()}/>
+      </View>
     </ScrollView>
   )
 }

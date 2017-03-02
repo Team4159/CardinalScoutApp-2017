@@ -9,12 +9,12 @@ export const display = (d, ch) => {
 }
 
 export const dataToRender = (d, id) =>{
-
-  var renderData = d.find((value) =>{
+  const renderData = d.find((value) =>{
     return value.id === id;
   }).data;
   return renderData;
 }
+
 export const csv = (d, uid, ch) => {
   var names = Object.keys(d);
   var data = Object.values(d);

@@ -16,9 +16,9 @@ import { csv } from '../../../config/globalFunctions';
 
 const Data = ({ info, data, onPress, uid }) => (
   <View style={{paddingTop: 70, paddingLeft:10,flex: 1,flexDirection: 'column',justifyContent: 'space-between'}}>
-    <Text>{csv(info,uid,',')}</Text>
-    <QRCode size={250} value={csv(info,uid,',')} />
-    <Text>{display(dataToRender(data ,info), "\n")}</Text>
+    <Text>{csv(dataToRender(data,info),uid,',')}</Text>
+    <QRCode size={250} value={csv(dataToRender(data,info),uid,',')} />
+    <Text>{display(dataToRender(data, info), "\n")}</Text>
   </View>
 )
 
