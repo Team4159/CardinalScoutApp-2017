@@ -13,7 +13,7 @@ const Settings = ({ onPress, uid }) =>{
         />
 
         { uid==='' ? <BigButton
-          onPress={() => {onPress(tempUID); tempUID=''}}
+          onPress={() => {alert(onPress, tempUID); tempUID=''}}
           text={'Save'}/>
           :
           <Text>You can only set your UID once</Text>
@@ -22,4 +22,16 @@ const Settings = ({ onPress, uid }) =>{
       </View>
     )
 }
+const alert = (onPress, uid) => (
+    Alert.alert(
+      'Confirmation',
+      uid,
+      [
+        {text: 'Cancel'},
+        {text: 'Submit', onPress: () =>
+              onPress(uid)
+        }
+      ]
+    )
+)
 export default Settings;
