@@ -8,12 +8,12 @@ export default StyleSheet.create({
   },
   textBox: {
     height: 50,
-    width: 250,
     borderWidth: 1,
     borderColor: 'gray',
     paddingLeft: 10,
     marginTop: 10,
-    marginBottom: 15
+    marginBottom: 15,
+    alignSelf:'stretch'
   },
   row:{
     flexDirection: 'row',

@@ -6,8 +6,9 @@ const Settings = ({ onPress, uid }) =>{
   var tempUID = '';
   return(
       <View style = {styles.container}>
+        <Text>User ID</Text>
         <TextInput style={styles.textBox}
-          placeholder='Ex. John Smith => josm' maxLength={4}
+          placeholder={uid===''? 'Ex. John Smith => josm' : uid} maxLength={4}
           onChangeText={text => {tempUID = text}}
         />
 
