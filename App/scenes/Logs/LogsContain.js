@@ -10,8 +10,6 @@ export default class LogsContain extends Component{
   }
   _renderScene = (scene, d, uid) => {
     switch (scene) {
-      case 'QR':
-        return <QR info={d} uid={uid}/>
       case 'EditData':
          return <EditData info={d} />
       case 'Data':

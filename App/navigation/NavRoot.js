@@ -26,8 +26,6 @@ class NavRoot extends Component {
         return <Home/>
       case 'Logs':
         return <Logs/>
-      case 'QR':
-        return <Logs scene='QR' info={route.data} uid={route.uid}/>
       case 'Data':
         return <Logs scene='Data' info={route.data} />
       case 'Edit Data':
