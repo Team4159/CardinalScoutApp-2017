@@ -72,12 +72,12 @@ const TeleopForm = ({ onPlusPress, onMinusPress, data, submit, onChangeText, onN
           <Text style={styles.rowText}>Touch Pad?</Text>
           <View style={styles.row}>
             <SmallButton text='T' style={data.reachTouchPad==='T' ?
-               {backgroundColor:'gray'} : undefined }
+              {backgroundColor: '#8b0000'} : {backgroundColor: 'gray'} }
                onPress={() => submit({reachTouchPad: 'T'})}
                disabled={data.reachTouchPad==='T'}
              />
             <SmallButton text='F'style={data.reachTouchPad==='F' ?
-              {backgroundColor:'gray'} : undefined }
+              {backgroundColor: '#8b0000'} : {backgroundColor: 'gray'} }
               onPress={() => submit({reachTouchPad: 'F'})}
               disabled={data.reachTouchPad==='F'}
             />
@@ -86,12 +86,12 @@ const TeleopForm = ({ onPlusPress, onMinusPress, data, submit, onChangeText, onN
           <Text style={styles.rowText}>Climb?</Text>
           <View style={styles.row}>
             <SmallButton text='T'style={data.scoreTouchPad==='T' ?
-              {backgroundColor:'gray'} : styles.counterButton }
+              {backgroundColor: '#8b0000'} : {backgroundColor: 'gray'} }
               onPress={() => submit({scoreTouchPad: 'T'})}
               disabled={data.scoreTouchPad==='T'}
             />
             <SmallButton text='F' style={data.scoreTouchPad==='F' ?
-              {backgroundColor:'gray'} : styles.counterButton}
+              {backgroundColor: '#8b0000'} : {backgroundColor: 'gray'} }
               onPress={() => submit({scoreTouchPad: 'F'})}
               disabled={!data.scoreTouchPad==='F'}
             />
