@@ -11,7 +11,7 @@ import styles from './styles';
 const PreForm = ({ onNextPress, push, onChangeText, match, team }) =>(
       <View style={styles.container}>
         <Text style={styles.text}>Match Number:</Text>
-        <TextInput placeholder={'Ex. 69'} value={match} style={styles.textBox}
+        <TextInput placeholder={'Ex. 42'} value={match} style={styles.textBox}
           onChangeText = {(text) => onChangeText(text, 'match') }/>
         <Text style={styles.text}>Team Number:</Text>
         <TextInput placeholder={'Ex. 4159'} value={team} style={styles.textBox}
