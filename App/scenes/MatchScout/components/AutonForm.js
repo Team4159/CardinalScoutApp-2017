@@ -31,14 +31,9 @@ const AutonForm = ({ onPlusPress, onMinusPress, push, submit, data }) =>(
 
       <Text style={styles.rowText}>Cross</Text>
       <View style={styles.row}>
-        <SmallButton text='T'style={data.cross==='T' ?
-          {backgroundColor: 'gray'} : undefined }
-          onPress={() => submit({cross: 'T'})} disabled={data.cross==='T'}
-        />
-        <SmallButton text='F' style={data.cross==='F' ?
-          {backgroundColor: 'gray'} : undefined}
-          onPress={() => submit({cross: 'F'})} disabled={data.cross==='F'}
-        />
+        <Switch
+          onValueChange={(value)=>{value ? submit({cross:'T'}) : submit({cross:'F'})}}
+          value={data.cross === 'T'} tintColor='red'/>
       </View>
 
       <BigButton text='Next' onPress={() => push({key: 'Teleop'})}/>

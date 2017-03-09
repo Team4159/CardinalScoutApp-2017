@@ -12,7 +12,7 @@ const initialState = {
           teleopBallsHigh: 0,
           teleopBallsLow: 0,
           reachTouchPad: 'F',
-          scoreTouchPad: 'F',
+          climb: 'F',
           robotDeadTime: 0,
           comments: '',
         },
@@ -29,7 +29,7 @@ const initialState = {
               teleopBallsHigh: 0,
               teleopBallsLow: 0,
               reachTouchPad: 'F',
-              scoreTouchPad: 'F',
+              climb: 'F',
               robotDeadTime: 0,
               comments: '',
           }

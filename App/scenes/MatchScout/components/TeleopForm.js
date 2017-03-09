@@ -4,7 +4,9 @@ import { View,
          TextInput,
          TouchableHighlight,
          ScrollView,
-         Alert } from 'react-native';
+         Alert,
+         KeyboardAvoidingView,
+         Switch  } from 'react-native';
 import SmallButton from '../../../components/SmallButton';
 import BigButton from '../../../components/BigButton';
 import styles from './styles';
@@ -71,38 +73,25 @@ const TeleopForm = ({ onPlusPress, onMinusPress, data, submit, onChangeText, onN
 
           <Text style={styles.rowText}>Touch Pad?</Text>
           <View style={styles.row}>
-            <SmallButton text='T' style={data.reachTouchPad==='T' ?
-               {backgroundColor:'gray'} : undefined }
-               onPress={() => submit({reachTouchPad: 'T'})}
-               disabled={data.reachTouchPad==='T'}
-             />
-            <SmallButton text='F'style={data.reachTouchPad==='F' ?
-              {backgroundColor:'gray'} : undefined }
-              onPress={() => submit({reachTouchPad: 'F'})}
-              disabled={data.reachTouchPad==='F'}
-            />
+            <Switch
+              onValueChange={(value)=>{value ? submit({reachTouchPad:'T'}) : submit({reachTouchPad:'F'})}}
+              value={data.reachTouchPad === 'T'} tintColor='red'/>
           </View>
 
           <Text style={styles.rowText}>Climb?</Text>
           <View style={styles.row}>
-            <SmallButton text='T'style={data.scoreTouchPad==='T' ?
-              {backgroundColor:'gray'} : styles.counterButton }
-              onPress={() => submit({scoreTouchPad: 'T'})}
-              disabled={data.scoreTouchPad==='T'}
-            />
-            <SmallButton text='F' style={data.scoreTouchPad==='F' ?
-              {backgroundColor:'gray'} : styles.counterButton}
-              onPress={() => submit({scoreTouchPad: 'F'})}
-              disabled={!data.scoreTouchPad==='F'}
-            />
+            <Switch
+              onValueChange={(value)=>{value ? submit({climb:'T'}) : submit({climb:'F'})}}
+              value={data.climb === 'T'} tintColor='red'/>
           </View>
 
           <Text style={styles.rowText}>Important comments</Text>
+          <KeyboardAvoidingView behavior='padding' >
           <TextInput placeholder={'Ex. Died on field'}
             onChangeText={(text) => onChangeText(text)}
             style={styles.textBox} value={data.comments}
           />
-
+          </KeyboardAvoidingView>
           <BigButton onPress={() => Alert.alert(
             'Comfirmation',
             display(data, '\n'),
