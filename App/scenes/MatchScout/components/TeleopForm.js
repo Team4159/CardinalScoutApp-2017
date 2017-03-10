@@ -10,19 +10,10 @@ import { View,
 import SmallButton from '../../../components/SmallButton';
 import BigButton from '../../../components/BigButton';
 import styles from './styles';
-
-const display = (d, ch) => {
-  var names = Object.keys(d);
-  var data = Object.values(d);
-  var str = "";
-  for(var i = 0; i < names.length; i++){
-    str += names[i] + " = " + data[i] + ch
-  }
-  return str;
-}
+import { display } from '../../../config/globalFunctions';
 
 const TeleopForm = ({ onPlusPress, onMinusPress, data, submit, onChangeText, onNextPress }) => (
-      <ScrollView>
+      <ScrollView contentContainerStyle={{height: 900}}>
         <View style={styles.container}>
 
           <Text style={styles.rowText}>
@@ -78,20 +69,19 @@ const TeleopForm = ({ onPlusPress, onMinusPress, data, submit, onChangeText, onN
               value={data.reachTouchPad === 'T'} tintColor='red'/>
           </View>
 
-          <Text style={styles.rowText}>Climb?</Text>
+          <Text style={styles.rowText}> Climb? </Text>
           <View style={styles.row}>
             <Switch
               onValueChange={(value)=>{value ? submit({climb:'T'}) : submit({climb:'F'})}}
               value={data.climb === 'T'} tintColor='red'/>
           </View>
 
-          <Text style={styles.rowText}>Important comments</Text>
-          <KeyboardAvoidingView behavior='padding' >
+          <Text style={styles.rowText}> Important comments </Text>
           <TextInput placeholder={'Ex. Died on field'}
             onChangeText={(text) => onChangeText(text)}
             style={styles.textBox} value={data.comments}
           />
-          </KeyboardAvoidingView>
+
           <BigButton onPress={() => Alert.alert(
             'Comfirmation',
             display(data, '\n'),
