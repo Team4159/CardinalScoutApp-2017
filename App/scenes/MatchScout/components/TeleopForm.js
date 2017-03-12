@@ -11,6 +11,7 @@ import SmallButton from '../../../components/SmallButton';
 import BigButton from '../../../components/BigButton';
 import styles from './styles';
 import { display } from '../../../config/globalFunctions';
+import KeyboardSpacer from 'react-native-keyboard-spacer';
 
 const TeleopForm = ({ onPlusPress, onMinusPress, data, submit, onChangeText, onNextPress }) => (
       <ScrollView contentContainerStyle={{height: 900}}>
@@ -81,6 +82,7 @@ const TeleopForm = ({ onPlusPress, onMinusPress, data, submit, onChangeText, onN
             onChangeText={(text) => onChangeText(text)}
             style={styles.textBox} value={data.comments}
           />
+        <KeyboardSpacer/>
 
           <BigButton onPress={() => Alert.alert(
             'Comfirmation',

@@ -5,8 +5,7 @@ import { editData, saveEditData } from '../../../actions/dataActions';
 import EditData from '../components/EditData';
 function mapStateToProps (state) {
   return {
-    data: state.data.storedData.stash,
-    newData: state.data.temporaryData.editData.data,
+    data: state.data.temporaryData.editData.data,
     uid: state.data.storedData.uid
 } }
 
