@@ -25,6 +25,7 @@ const EditData = ({ data, info, editData, onSubmitPress }) =>{
                 <Switch
                   onValueChange = {(value) =>{value ? editData({[key]:'T'}) : editData({[key]:'F'})}}
                   value={data[ key ] === 'T'}
+                  tintColor='#D3D3D3' onTintColor='#8b0000'
                 />
               </View>
             )

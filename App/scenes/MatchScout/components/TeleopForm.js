@@ -67,14 +67,14 @@ const TeleopForm = ({ onPlusPress, onMinusPress, data, submit, onChangeText, onN
           <View style={styles.row}>
             <Switch
               onValueChange={(value)=>{value ? submit({reachTouchPad:'T'}) : submit({reachTouchPad:'F'})}}
-              value={data.reachTouchPad === 'T'} tintColor='red'/>
+              value={data.reachTouchPad === 'T'} tintColor='#D3D3D3' onTintColor='#8b0000'/>
           </View>
 
           <Text style={styles.rowText}> Climb? </Text>
           <View style={styles.row}>
             <Switch
               onValueChange={(value)=>{value ? submit({climb:'T'}) : submit({climb:'F'})}}
-              value={data.climb === 'T'} tintColor='red'/>
+              value={data.climb === 'T'} tintColor='#D3D3D3' onTintColor='#8b0000'/>
           </View>
 
           <Text style={styles.rowText}> Important comments </Text>

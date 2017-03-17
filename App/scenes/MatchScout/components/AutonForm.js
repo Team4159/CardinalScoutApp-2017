@@ -33,7 +33,7 @@ const AutonForm = ({ onPlusPress, onMinusPress, push, submit, data }) =>(
       <View style={styles.row}>
         <Switch
           onValueChange={(value)=>{value ? submit({cross:'T'}) : submit({cross:'F'})}}
-          value={data.cross === 'T'} tintColor='red'/>
+          value={data.cross === 'T'} tintColor='#D3D3D3' onTintColor='#8b0000'/>
       </View>
 
       <BigButton text='Next' onPress={() => push({key: 'Teleop'})}/>
