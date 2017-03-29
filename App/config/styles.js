@@ -1,3 +1,5 @@
+//'#8b0000' '#7F1417'
 export const colors = {
-  buttonColor: '#7F1417',
+  buttonColor: '#8b0000',
+
 }

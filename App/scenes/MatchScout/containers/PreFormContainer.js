@@ -2,14 +2,16 @@ import { connect } from 'react-redux'
 import PreForm from '../components/PreForm'
 import { push, pop } from '../../../actions/navActions'
 import { submit } from '../../../actions/dataActions'
-function mapStateToProps (state) {
-  return {}
-}
-function mapDispatchToProps (dispatch) {
+const mapStateToProps = (state) => {
   return {
-    push: (route) => dispatch(push(route)),
-    pop: () => dispatch(pop()),
-    submit: (data) => dispatch(submit(data)),
+    match: state.data.temporaryData.matchScoutData.match,
+    team: state.data.temporaryData.matchScoutData.team
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onNextPress: () => dispatch(push({key: 'Autonomous'})),
+    onChangeText: (text, w) => dispatch(submit({ [ w ]: text })),
   }
 }
 export default connect(

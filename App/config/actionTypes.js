@@ -4,5 +4,7 @@ export const RESET_DATA = 'RESET_DATA';
 export const RESET_ROUTE = 'RESET_ROUTE';
 export const SUBMIT_FORM = 'SUBMIT_FORM';
 export const STASH = 'STASH';
+export const EDIT_DATA = 'EDIT_DATA';
 export const CLEAR_STORED_DATA = 'CLEAR_STORED_DATA';
 export const SET_UID = 'SET_UID';
+export const SAVE_EDIT_DATA = 'SAVE_EDIT_DATA';

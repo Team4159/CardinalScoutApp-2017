@@ -3,7 +3,7 @@ import { colors } from '../../config/styles';
 
 export default StyleSheet.create({
   buttons: {
-    backgroundColor: '#8b0000',
+    backgroundColor: colors.buttonColor,
     height: 40,
     width: 45,
     alignItems: 'center',

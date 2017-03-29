@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableHighlight, Switch} from 'react-native';
+import { View,
+         Text,
+         TextInput,
+         TouchableHighlight,
+         Switch} from 'react-native';
 import SmallButton from '../../../components/SmallButton';
 import BigButton from '../../../components/BigButton';
 import styles from './styles';
 
-const AutonForm = ({ onPlusPress, onMinusPress, push, submit, data }) =>{
-  return(
+const AutonForm = ({ onPlusPress, onMinusPress, push, submit, data }) =>(
     <View style={styles.container}>
 
       <Text style={styles.rowText}>Gears: {data.autonGears}</Text>
@@ -28,12 +31,13 @@ const AutonForm = ({ onPlusPress, onMinusPress, push, submit, data }) =>{
 
       <Text style={styles.rowText}>Cross</Text>
       <View style={styles.row}>
-        <SmallButton text='T'style={data.cross ? styles.disabledButton:styles.counterButton } onPress={() => submit({cross: true})} disabled={data.cross}/>
-        <SmallButton text='F' style={!data.cross ? styles.disabledButton: styles.counterButton} onPress={() => submit({cross: false})} disabled={!data.cross}/>
+        <Switch
+          onValueChange={(value)=>{value ? submit({cross:'T'}) : submit({cross:'F'})}}
+          value={data.cross === 'T'} tintColor='#D3D3D3' onTintColor='#8b0000'/>
       </View>
 
       <BigButton text='Next' onPress={() => push({key: 'Teleop'})}/>
     </View>
-  )
-}
+)
+
 export default AutonForm;

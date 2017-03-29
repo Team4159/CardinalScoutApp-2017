@@ -3,11 +3,11 @@ import TeleopForm from '../components/TeleopForm'
 import { push, pop, reset } from '../../../actions/navActions'
 import { submit, resetData, stash } from '../../../actions/dataActions'
 
-function mapStateToProps (state) {
-  return { data: state.data.temporaryData }
+const mapStateToProps = (state) => {
+  return { data: state.data.temporaryData.matchScoutData }
 }
 
-function mapDispatchToProps (dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     push: (route) => dispatch(push(route)),
     submit: (data) => dispatch(submit(data)),
@@ -18,12 +18,16 @@ function mapDispatchToProps (dispatch) {
       dispatch(submit({teleopGears: gear }));
       }
       if(key === 'ball high') {
-      var ball = data.teleopBallsHigh + 1;
+      var ball = data.teleopBallsHigh + 2;
       dispatch(submit({teleopBallsHigh: ball}));
       }
       if(key === 'ball low') {
-      var ballL = data.teleopBallsLow + 1;
+      var ballL = data.teleopBallsLow + 2;
       dispatch(submit({teleopBallsLow: ballL}));
+      }
+      if(key === 'robot dead time'){
+        var time = data.robotDeadTime + 10;
+        dispatch(submit({robotDeadTime: time}));
       }
     },
     onMinusPress: (key, data) => {
@@ -34,22 +38,30 @@ function mapDispatchToProps (dispatch) {
       }
       }
       if(key === 'ball high') {
-      var ball = data.teleopBallsHigh - 1;
+      var ball = data.teleopBallsHigh - 2;
       if(ball >= 0){
       dispatch(submit({teleopBallsHigh: ball}));
       }
       }
       if(key === 'ball low') {
-      var ballL = data.teleopBallsLow - 1;
+      var ballL = data.teleopBallsLow - 2;
       if(ballL >= 0){
       dispatch(submit({teleopBallsLow: ballL}));
       }
+      }
+      if(key === 'robot dead time'){
+        var time = data.robotDeadTime - 10;
+        if(time >= 0)
+        dispatch(submit({robotDeadTime: time}));
       }
     },
     onNextPress: (route) => {
       dispatch(stash())
       dispatch(reset(route))
       dispatch(resetData())
+    },
+    onChangeText: (text) => {
+      dispatch(submit({comments: text}))
     }
   }
 }
