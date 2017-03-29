@@ -13,7 +13,7 @@ export default StyleSheet.create({
     paddingLeft: 10,
     marginTop: 10,
     marginBottom: 15,
-    alignSelf:'stretch'
+    alignSelf:'stretch',
   },
   row:{
     flexDirection: 'row',

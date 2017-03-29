@@ -11,8 +11,9 @@ export default StyleSheet.create({
     fontSize: 24,
   },
   title: {
-    fontSize: 34,
+    fontSize: 30,
     color: '#8b0000',
-    fontFamily: 'Avenir'
+    fontFamily: 'Avenir',
+    textAlign:'center'
   }
 })

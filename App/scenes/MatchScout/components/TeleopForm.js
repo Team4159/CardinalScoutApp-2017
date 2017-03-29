@@ -55,12 +55,12 @@ const TeleopForm = ({ onPlusPress, onMinusPress, data, submit, onChangeText, onN
               text='-'
             />
           </View>
-          <Text style={styles.rowText}> Robot Dead Time: {data.robotDeadTime}s</Text>
+
+          <Text style={styles.rowText}> Climb? </Text>
           <View style={styles.row}>
-            <SmallButton text='+' onPress={() =>
-              onPlusPress('robot dead time', data)}/>
-            <SmallButton text='-' onPress={() =>
-              onMinusPress('robot dead time', data)} />
+            <Switch
+              onValueChange={(value)=>{value ? submit({climb:'T'}) : submit({climb:'F'})}}
+              value={data.climb === 'T'} tintColor='#D3D3D3' onTintColor='#8b0000'/>
           </View>
 
           <Text style={styles.rowText}>Touch Pad?</Text>
@@ -70,17 +70,19 @@ const TeleopForm = ({ onPlusPress, onMinusPress, data, submit, onChangeText, onN
               value={data.reachTouchPad === 'T'} tintColor='#D3D3D3' onTintColor='#8b0000'/>
           </View>
 
-          <Text style={styles.rowText}> Climb? </Text>
+          <Text style={styles.rowText}> Robot Dead Time: {data.robotDeadTime}s</Text>
           <View style={styles.row}>
-            <Switch
-              onValueChange={(value)=>{value ? submit({climb:'T'}) : submit({climb:'F'})}}
-              value={data.climb === 'T'} tintColor='#D3D3D3' onTintColor='#8b0000'/>
+            <SmallButton text='+' onPress={() =>
+              onPlusPress('robot dead time', data)}/>
+            <SmallButton text='-' onPress={() =>
+              onMinusPress('robot dead time', data)} />
           </View>
 
           <Text style={styles.rowText}> Important comments </Text>
           <TextInput placeholder={'Ex. Died on field'}
             onChangeText={(text) => onChangeText(text)}
             style={styles.textBox} value={data.comments}
+            maxLength={20}
           />
         <KeyboardSpacer/>
 

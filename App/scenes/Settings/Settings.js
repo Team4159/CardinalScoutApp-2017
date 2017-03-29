@@ -7,7 +7,7 @@ const Settings = ({ onPress, uid }) =>{
   var tempUID = '';
   return(
     <View style = {styles.container}>
-      <Text>User ID</Text>
+      <Text style={{fontSize:16}}>User ID</Text>
       <TextInput style={styles.textBox}
         placeholder={uid===''? 'Ex. John Smith => josm' : uid} maxLength={4}
         onChangeText={text => {tempUID = text}}
@@ -20,8 +20,12 @@ const Settings = ({ onPress, uid }) =>{
         <Text>You can only set your UID once</Text>
       }
 
-      <TouchableHighlight underlayColor='rgb(255,255,255)' style={{marginTop: 50}} onPress={() => openURL('https://www.github.com/Team4159/CardinalScout-2017')}>
-        <Text style={{color:'#8b0000', fontSize:16}}>Click to open (source) in Github!</Text>
+      <Text style={{marginTop:30,fontSize:16}}>Quick Links:</Text>
+      <TouchableHighlight underlayColor='rgb(255,255,255)' style={{marginTop: 10}} onPress={() => openURL('https://www.github.com/Team4159/CardinalScout-2017')}>
+        <Text style={{color:'#8b0000', fontSize:16}}>CardinalScout GitHub repo</Text>
+      </TouchableHighlight>
+      <TouchableHighlight underlayColor='rgb(255,255,255)' style={{marginTop: 10}} onPress={() => openURL('https://github.com/Team4159/ScoutingBackend')}>
+        <Text style={{color:'#8b0000', fontSize:16}}>Team 4159's QR scanning desktop app</Text>
       </TouchableHighlight>
 
     </View>

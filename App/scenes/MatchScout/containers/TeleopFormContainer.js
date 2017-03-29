@@ -18,11 +18,11 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(submit({teleopGears: gear }));
       }
       if(key === 'ball high') {
-      var ball = data.teleopBallsHigh + 3;
+      var ball = data.teleopBallsHigh + 2;
       dispatch(submit({teleopBallsHigh: ball}));
       }
       if(key === 'ball low') {
-      var ballL = data.teleopBallsLow + 10;
+      var ballL = data.teleopBallsLow + 2;
       dispatch(submit({teleopBallsLow: ballL}));
       }
       if(key === 'robot dead time'){
@@ -38,13 +38,13 @@ const mapDispatchToProps = (dispatch) => {
       }
       }
       if(key === 'ball high') {
-      var ball = data.teleopBallsHigh - 3;
+      var ball = data.teleopBallsHigh - 2;
       if(ball >= 0){
       dispatch(submit({teleopBallsHigh: ball}));
       }
       }
       if(key === 'ball low') {
-      var ballL = data.teleopBallsLow - 10;
+      var ballL = data.teleopBallsLow - 2;
       if(ballL >= 0){
       dispatch(submit({teleopBallsLow: ballL}));
       }

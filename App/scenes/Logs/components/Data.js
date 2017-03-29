@@ -5,7 +5,10 @@ import { TextInput,
          TouchableOpacity,
          Text,
          ListView,
-         Alert } from 'react-native';
+         Alert,
+         TouchableHighlight,
+         Share,
+       ScrollView } from 'react-native';
 import BigButton from '../../../components/BigButton';
 import SmallButton from '../../../components/SmallButton';
 import styles from './styles';
@@ -15,11 +18,24 @@ import { display, dataToRender } from '../../../config/globalFunctions';
 import { csv } from '../../../config/globalFunctions';
 
 const Data = ({ info, data, onPress, uid }) => (
-  <View style={{paddingTop: 70, paddingLeft:10,flex: 1,flexDirection: 'column',justifyContent: 'space-between'}}>
+  <ScrollView>
+  <View style={{paddingTop: 70, paddingLeft:10,flex: 1,flexDirection: 'column'}}>
     <QRCode size={250} value={csv(dataToRender(data,info),uid,',')} />
-    <Text>{display(dataToRender(data, info), "\n")}</Text>
+    <TouchableHighlight underlayColor='rgb(255,255,255)' style={{paddingTop:20}} onPress={() => shareData(csv(dataToRender(data,info),uid,','))}>
+      <Text style={{color:'#8b0000', fontSize:16}}>Social Share</Text>
+    </TouchableHighlight>
+    <Text style={{paddingTop:20}}>{display(dataToRender(data, info), "\n")}</Text>
   </View>
+  </ScrollView>
 )
+
+const shareData = (m) => {
+  Share.share({
+    message: m
+  })
+  .then(this._showResult)
+  .catch((error) => this.setState({result: 'error: ' + error.message}));
+}
 
 const mapStateToProps = (state) => {
   return {
